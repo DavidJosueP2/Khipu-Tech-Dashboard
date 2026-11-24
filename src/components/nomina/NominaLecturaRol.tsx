@@ -1,7 +1,18 @@
 import remunerationMaterial from "@/assets/pdfs/Materia Unidad III/3.4 Remuneraciones caso UBIKAR.pdf?url";
 import benefitsMaterial from "@/assets/pdfs/Materia Unidad III/3.5 Otros beneficios laborales normativa Ecuatoriana.pdf?url";
+import { ResourceLinks } from "@/components/layout/ResourceLinks";
 import { EditorialSerif } from "@/components/typography/EditorialSerif";
-import { PAYROLL_EXERCISE_META } from "@/data/nomina";
+import { PAYROLL_EXERCISE_META, PAYROLL_SIMULATOR_URL } from "@/data/nomina";
+import { PAYROLL_BENEFIT_RESOURCES } from "@/data/publicResources";
+
+const payrollResources = [
+  {
+    label: "Simulador salarial del proyecto",
+    url: PAYROLL_SIMULATOR_URL,
+    description: "Prueba el cálculo del rol con sueldo, horas con recargo, aportes y beneficios en el simulador del APE 03.",
+  },
+  ...PAYROLL_BENEFIT_RESOURCES,
+];
 
 export function NominaLecturaRol({ reportUrl }: { reportUrl: string }) {
   return (
@@ -73,6 +84,12 @@ export function NominaLecturaRol({ reportUrl }: { reportUrl: string }) {
           </a>
         </div>
       </div>
+
+      <ResourceLinks
+        title="Herramientas para calcular el rol de pago"
+        links={payrollResources}
+        heading="h4"
+      />
     </section>
   );
 }

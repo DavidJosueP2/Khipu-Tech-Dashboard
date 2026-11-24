@@ -1,11 +1,13 @@
 import { useRef, useState } from "react";
 import { ArrowUpRight } from "lucide-react";
 
+import { ResourceLinks } from "@/components/layout/ResourceLinks";
 import {
   getLiquidacionDoc,
   TWELVE_LIQUIDATION_CASES,
   type LiquidacionDocument,
 } from "@/data/liquidacion";
+import { LIQUIDATION_RESOURCES } from "@/data/publicResources";
 import { EditorialSerif } from "@/components/typography/EditorialSerif";
 import { gsap, useGSAP, withResponsiveMotion } from "@/lib/motion";
 
@@ -96,6 +98,8 @@ export function LiquidacionDoceCasosSection({
             <ArrowUpRight className="size-3.5" />
           </button>
         </div>
+
+        <ResourceLinks title="Calcular la liquidación y tramitar el finiquito" links={LIQUIDATION_RESOURCES} />
 
         {/* Filtros discretos solo texto */}
         <div

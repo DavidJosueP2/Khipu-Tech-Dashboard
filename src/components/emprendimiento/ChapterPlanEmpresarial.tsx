@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 import {
   COMPETITIVE_COMPARISON,
@@ -12,6 +13,8 @@ import {
 } from "@/data/emprendimiento";
 import { ChapterHeader } from "@/components/emprendimiento/ChapterHeader";
 import { KhipuLogoEmblem } from "@/components/emprendimiento/KhipuLogoEmblem";
+import { ResourceLinks } from "@/components/layout/ResourceLinks";
+import { BUSINESS_SETUP_RESOURCES } from "@/data/publicResources";
 import {
   animateDocumentListStagger,
   animateEditorialReveal,
@@ -394,10 +397,18 @@ export function ChapterPlanEmpresarial() {
                   <p className="text-sm leading-relaxed text-muted-foreground">
                     {comp.offering} {comp.strength}
                   </p>
+                  <a href={comp.plansUrl} target="_blank" rel="noreferrer" className="editorial-action">
+                    Ver planes actuales de {comp.name}
+                    <ArrowUpRight aria-hidden="true" className="size-3.5 shrink-0" />
+                    <span className="sr-only"> (abre en una pestaña nueva)</span>
+                  </a>
                 </div>
               ))}
             </div>
           </div>
+          <p className="text-sm text-muted-foreground">
+            Los precios de la comparativa corresponden al estudio de mercado del APE 01.
+          </p>
         </div>
       </section>
 
@@ -462,6 +473,8 @@ export function ChapterPlanEmpresarial() {
               </div>
             ))}
           </div>
+
+          <ResourceLinks title="Trámites para poner en marcha el negocio" links={BUSINESS_SETUP_RESOURCES} />
         </div>
       </section>
     </>

@@ -75,6 +75,7 @@ export interface SurveyMetric {
 
 export interface CompetitorEntry {
   name: string;
+  plansUrl: string;
   priceHeadline: string;
   priceSubtext: string;
   offering: string;
@@ -521,6 +522,7 @@ export const COMPETITIVE_COMPARISON = {
   competitors: [
     {
       name: "Contífico",
+      plansUrl: "https://www.siigo.com/ec/planes/",
       priceHeadline: "Desde USD 25",
       priceSubtext: "hasta USD 75 al mes",
       offering: "Cloud ERP/POS orientado a facturación electrónica y contabilidad general.",
@@ -528,6 +530,7 @@ export const COMPETITIVE_COMPARISON = {
     },
     {
       name: "Dora.ec",
+      plansUrl: "https://dora.ec/precios.php",
       priceHeadline: "Desde USD 19",
       priceSubtext: "hasta USD 49 al mes",
       offering: "Software contable, facturación electrónica e inventario general en línea.",

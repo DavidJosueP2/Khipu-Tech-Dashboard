@@ -771,6 +771,8 @@ export const APP_EVIDENCE_SCREENS: readonly AppEvidenceScreen[] = [
   },
 ] as const;
 
+export const PAYROLL_SIMULATOR_URL = "https://rol-pagos-ecuador.vercel.app/";
+
 export const APP_EXTERNAL_LINKS = [
   {
     label: "Aplicación web en producción",
@@ -780,7 +782,7 @@ export const APP_EXTERNAL_LINKS = [
   {
     label: "Simulador salarial público",
     subtitle: "Landing page documentada en Anexo 5",
-    url: "https://rol-pagos-ecuador.vercel.app/",
+    url: PAYROLL_SIMULATOR_URL,
   },
 ] as const;
 

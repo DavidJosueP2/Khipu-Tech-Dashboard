@@ -1,5 +1,7 @@
 import formalizationMaterial from "@/assets/pdfs/Materia Unidad II/2.1 Obligaciones tributarias de emprendedores.pdf?url";
+import { ResourceLinks } from "@/components/layout/ResourceLinks";
 import { EditorialSerif } from "@/components/typography/EditorialSerif";
+import { BUSINESS_SETUP_RESOURCES } from "@/data/publicResources";
 import { getTributacionDoc, KHIPUTECH_TAX_PROFILE } from "@/data/tributacion";
 
 export function TributacionFichaFiscal() {
@@ -87,6 +89,12 @@ export function TributacionFichaFiscal() {
           Material de formalización
         </a>
       </div>
+
+      <ResourceLinks
+        title="Trámites para formalizar la empresa"
+        links={BUSINESS_SETUP_RESOURCES}
+        heading="h4"
+      />
     </section>
   );
 }

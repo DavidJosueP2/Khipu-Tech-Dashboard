@@ -8,6 +8,15 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
+import { ResourceLinks } from "@/components/layout/ResourceLinks";
+import {
+  HIRING_RESOURCES,
+  IMPORT_RESOURCES,
+  INVOICING_RESOURCES,
+  RUC_LOOKUP_RESOURCES,
+  TRADEMARK_RESOURCES,
+  VAT_RESOURCES,
+} from "@/data/publicResources";
 import {
   CIIU_ACTIVITIES,
   ECUADOR_TECH_IMPORTS_2024,
@@ -258,6 +267,15 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
               </button>
             </div>
           </div>
+
+          <ResourceLinks
+            title="Consultar el RUC y la actividad económica"
+            links={RUC_LOOKUP_RESOURCES}
+          />
+          <ResourceLinks
+            title="Emitir y verificar comprobantes electrónicos"
+            links={INVOICING_RESOURCES}
+          />
         </div>
       </section>
 
@@ -480,6 +498,8 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
               </a>
             </div>
           </div>
+
+          <ResourceLinks title="Herramientas para la declaración de IVA" links={VAT_RESOURCES} />
         </div>
       </section>
 
@@ -602,6 +622,9 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
               </div>
             </div>
           </div>
+
+          <ResourceLinks title="Buscar y registrar una marca" links={TRADEMARK_RESOURCES} />
+          <ResourceLinks title="Consultar importaciones y aranceles" links={IMPORT_RESOURCES} />
         </div>
       </section>
 
@@ -674,6 +697,8 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
               </div>
             ))}
           </div>
+
+          <ResourceLinks title="Registrar la contratación y afiliación" links={HIRING_RESOURCES} />
 
           {/* Puente visual limpio hacia el Módulo 03 (/nomina) */}
           <div

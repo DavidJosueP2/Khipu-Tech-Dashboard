@@ -2,6 +2,7 @@ import { useRef } from "react";
 
 import {
   FINANCIAL_SUMMARY,
+  getEmprendimientoDoc,
   INVESTMENT_BARS,
   MONTHLY_COST_BARS,
 } from "@/data/emprendimiento";
@@ -26,6 +27,7 @@ const PAYBACK_PCT = Math.min(
  *   4B. Ingresos (USD 4.000) vs Costos (USD 2.256), margen (43,6 %) y recuperación (1,7 meses)
  */
 export function ChapterResultadosEconomicos() {
+  const economicStudy = getEmprendimientoDoc("tarea-05");
   const costsRef = useRef<HTMLElement>(null);
   const outcomeRef = useRef<HTMLElement>(null);
 
@@ -327,6 +329,15 @@ export function ChapterResultadosEconomicos() {
           <p className="border-l-2 border-primary/50 pl-4 text-sm leading-relaxed text-muted-foreground">
             {FINANCIAL_SUMMARY.caveat}
           </p>
+          <a
+            className="editorial-action"
+            href={economicStudy.url}
+            target="_blank"
+            rel="noreferrer"
+          >
+            Ver la plantilla del estudio económico (PDF)
+            <span className="sr-only"> (abre en una pestaña nueva)</span>
+          </a>
         </div>
       </section>
     </>

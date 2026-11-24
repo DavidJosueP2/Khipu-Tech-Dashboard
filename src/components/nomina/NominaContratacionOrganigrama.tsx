@@ -14,6 +14,8 @@ import {
   type NominaDocument,
 } from "@/data/nomina";
 import { ChapterHeader } from "@/components/emprendimiento/ChapterHeader";
+import { ResourceLinks } from "@/components/layout/ResourceLinks";
+import { HIRING_RESOURCES } from "@/data/publicResources";
 import {
   animateDocumentListStagger,
   animateEditorialReveal,
@@ -371,6 +373,11 @@ export function NominaContratacionOrganigrama({
               </div>
             </div>
           </div>
+
+          <ResourceLinks
+            title="Registrar el contrato y la afiliación"
+            links={HIRING_RESOURCES}
+          />
         </div>
       </section>
 

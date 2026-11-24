@@ -79,6 +79,15 @@ export function LiquidacionCausalesSection() {
         </dl>
 
         <div className="flex flex-wrap gap-x-6 gap-y-3">
+          <a
+            className="editorial-action"
+            href="https://www.trabajo.gob.ec/wp-content/uploads/downloads/2024/01/CODIGO_DEL_TRABAJO.pdf#page=66"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Código del Trabajo · Causales de terminación
+            <span className="sr-only"> (abre en una pestaña nueva)</span>
+          </a>
           <a className="editorial-action" href={terminationMaterial + "#page=4"} target="_blank" rel="noreferrer">
             Material de causales
           </a>
