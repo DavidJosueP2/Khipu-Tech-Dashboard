@@ -105,16 +105,15 @@ export function ChapterResultadosEconomicos() {
         <div className="space-y-12">
           <ChapterHeader
             headingId="economia-costos-heading"
-            eyebrow="04 / 04 · MÓDULO 01 · INVERSIÓN Y COSTOS"
-            titleBold="Resultados"
-            titleItalic="económicos"
+            titleBold="Inversión"
+            titleItalic="y costos"
             lead="El estudio económico determina si KhipuTech es viable. Primero cuantificamos cuánto cuesta ponerlo en marcha y sostener su operación mensual."
             objective="Estimar los recursos iniciales y los costos operativos mensuales necesarios para operar."
           />
 
           {/* Barras horizontales: Inversión inicial */}
           <div className="space-y-5">
-            <p className="font-mono text-xs font-semibold tracking-[0.18em] text-primary uppercase">
+            <p className="text-xs font-semibold text-primary">
               Inversión inicial (Cuadro 10)
             </p>
 
@@ -137,7 +136,7 @@ export function ChapterResultadosEconomicos() {
                         className="h-full rounded-full bg-gradient-to-r from-primary/70 to-primary"
                       />
                     </div>
-                    <span className="font-mono text-sm font-semibold text-foreground tabular-nums sm:text-right">
+                    <span className="text-sm font-semibold text-foreground tabular-nums sm:text-right">
                       {item.formatted}
                     </span>
                   </div>
@@ -149,7 +148,7 @@ export function ChapterResultadosEconomicos() {
               <span className="text-sm font-bold text-foreground">
                 Total inversión inicial
               </span>
-              <span className="font-mono text-xl font-bold text-primary tabular-nums sm:text-2xl">
+              <span className="text-xl font-bold text-primary tabular-nums sm:text-2xl">
                 {FINANCIAL_SUMMARY.initialInvestmentFormatted}
               </span>
             </div>
@@ -157,7 +156,7 @@ export function ChapterResultadosEconomicos() {
 
           {/* Barras horizontales: Costo mensual */}
           <div className="space-y-5 pt-4">
-            <p className="font-mono text-xs font-semibold tracking-[0.18em] text-primary uppercase">
+            <p className="text-xs font-semibold text-primary">
               Costo mensual de operación y talento humano (Cuadros 11 y 12)
             </p>
 
@@ -183,7 +182,7 @@ export function ChapterResultadosEconomicos() {
                         className="h-full rounded-full bg-gradient-to-r from-sky-400/75 to-primary"
                       />
                     </div>
-                    <span className="font-mono text-sm font-semibold text-foreground tabular-nums sm:text-right">
+                    <span className="text-sm font-semibold text-foreground tabular-nums sm:text-right">
                       {item.formatted}
                     </span>
                   </div>
@@ -195,7 +194,7 @@ export function ChapterResultadosEconomicos() {
               <span className="text-sm font-bold text-foreground">
                 Costo mensual total
               </span>
-              <span className="font-mono text-xl font-bold text-foreground tabular-nums sm:text-2xl">
+              <span className="text-xl font-bold text-foreground tabular-nums sm:text-2xl">
                 USD {FINANCIAL_SUMMARY.monthlyTotalCostFormatted}
               </span>
             </div>
@@ -213,9 +212,8 @@ export function ChapterResultadosEconomicos() {
         <div className="space-y-12">
           <ChapterHeader
             headingId="economia-resultado-heading"
-            eyebrow="04 / 04 · MÓDULO 01 · INGRESOS Y RESULTADO"
-            titleBold="Resultados"
-            titleItalic="económicos"
+            titleBold="Ingresos"
+            titleItalic="y resultados"
             lead="Con 200 clientes a USD 20 mensuales, los ingresos superan a los costos operativos y la inversión inicial se recupera en 1,7 meses."
             objective="Comprobar la viabilidad financiera preliminar comparando ingresos proyectados contra costos mensuales."
           />
@@ -235,7 +233,7 @@ export function ChapterResultadosEconomicos() {
                   className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-300"
                 />
               </div>
-              <span className="font-mono text-base font-bold text-foreground tabular-nums sm:text-right">
+              <span className="text-base font-bold text-foreground tabular-nums sm:text-right">
                 {FINANCIAL_SUMMARY.monthlyRevenueFormatted}
               </span>
             </div>
@@ -262,7 +260,7 @@ export function ChapterResultadosEconomicos() {
                   className="h-full rounded-full bg-gradient-to-r from-amber-500 to-orange-400"
                 />
               </div>
-              <span className="font-mono text-base font-bold text-foreground tabular-nums sm:text-right">
+              <span className="text-base font-bold text-foreground tabular-nums sm:text-right">
                 {FINANCIAL_SUMMARY.monthlyTotalCostFormatted}
               </span>
             </div>
@@ -283,7 +281,7 @@ export function ChapterResultadosEconomicos() {
               </p>
             </div>
 
-            <div className="font-mono text-4xl font-bold tracking-tight text-primary tabular-nums sm:text-5xl">
+            <div className="text-4xl font-bold tracking-tight text-primary tabular-nums sm:text-5xl">
               {FINANCIAL_SUMMARY.monthlyNetResultFormatted}
             </div>
           </div>
@@ -295,7 +293,7 @@ export function ChapterResultadosEconomicos() {
                 Recuperación simple de la inversión de{" "}
                 {FINANCIAL_SUMMARY.initialInvestmentFormatted}
               </span>
-              <span className="font-mono text-2xl font-bold text-primary tabular-nums sm:text-3xl">
+              <span className="text-2xl font-bold text-primary tabular-nums sm:text-3xl">
                 {FINANCIAL_SUMMARY.paybackFormatted}
               </span>
             </div>
@@ -318,7 +316,7 @@ export function ChapterResultadosEconomicos() {
               />
             </div>
 
-            <div className="flex items-center justify-between font-mono text-[0.7rem] text-muted-foreground">
+            <div className="flex items-center justify-between text-xs text-muted-foreground">
               <span>0</span>
               <span>6 meses</span>
               <span>12 meses</span>
@@ -326,7 +324,7 @@ export function ChapterResultadosEconomicos() {
           </div>
 
           {/* Nota de validación real del APE 01 */}
-          <p className="border-l-2 border-primary/50 pl-4 text-xs leading-relaxed text-muted-foreground">
+          <p className="border-l-2 border-primary/50 pl-4 text-sm leading-relaxed text-muted-foreground">
             {FINANCIAL_SUMMARY.caveat}
           </p>
         </div>

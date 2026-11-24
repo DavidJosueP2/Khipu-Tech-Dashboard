@@ -68,18 +68,14 @@ export function LiquidacionEvidenciasExpediente({
       >
         <div className="editorial-container space-y-16">
           <div data-ed-closing className="max-w-2xl space-y-3">
-            <p className="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">
-              04 · Evidencias complementarias
-            </p>
             <h2
               id="m4-evid-heading"
-              className="text-[clamp(2.25rem,4.6vw,3.8rem)] leading-[1.04] font-bold tracking-[-0.03em] text-foreground"
+              className="type-display"
             >
               Gamificación y{" "}
               <EditorialSerif
                 optical="display"
                 className="font-normal"
-                style={{ color: ACCENT }}
               >
                 video.
               </EditorialSerif>
@@ -90,13 +86,13 @@ export function LiquidacionEvidenciasExpediente({
             {/* Izquierda: Laboral Hack / UTA + Kahoot (sin caja) */}
             <div data-ed-closing className="space-y-8 lg:col-span-7">
               <div className="flex items-baseline justify-between gap-4 border-b border-border pb-4">
-                <h3 className="text-base font-bold text-foreground">
+                <h3 className="type-subheading">
                   Laboral Hack / UTA · Grupo 2
                 </h3>
                 <button
                   type="button"
                   onClick={() => onPreview(hackDoc)}
-                  className="cursor-pointer font-mono text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground"
+                  className="cursor-pointer text-xs text-muted-foreground underline underline-offset-4 hover:text-foreground"
                 >
                   Ver PDF (10 págs.)
                 </button>
@@ -109,7 +105,7 @@ export function LiquidacionEvidenciasExpediente({
                     className="flex items-baseline justify-between gap-4 py-4"
                   >
                     <div className="flex items-baseline gap-4">
-                      <span className="font-mono text-xs text-muted-foreground">
+                      <span className="text-xs text-muted-foreground">
                         0{idx + 1}
                       </span>
                       <div>
@@ -122,7 +118,7 @@ export function LiquidacionEvidenciasExpediente({
                       </div>
                     </div>
                     <span
-                      className="font-mono text-lg font-bold tabular-nums"
+                      className="text-lg font-bold tabular-nums"
                       style={{ color: ACCENT }}
                     >
                       {run.score} / 100
@@ -153,10 +149,10 @@ export function LiquidacionEvidenciasExpediente({
               className="space-y-5 lg:col-span-5 lg:border-l lg:border-border lg:pl-12"
             >
               <div className="flex items-baseline justify-between gap-2">
-                <h3 className="text-base font-bold text-foreground">
+                <h3 className="type-subheading">
                   {VIDEO_DESPIDO_DATA.title}
                 </h3>
-                <span className="font-mono text-xs text-muted-foreground">
+                <span className="text-xs text-muted-foreground">
                   {VIDEO_DESPIDO_DATA.date}
                 </span>
               </div>
@@ -165,7 +161,7 @@ export function LiquidacionEvidenciasExpediente({
                 type="button"
                 onClick={() => onPreview(videoDoc)}
                 aria-label="Abrir Video despido.pdf"
-                className="group block w-full cursor-pointer overflow-hidden rounded-xl border border-border bg-surface p-3 shadow-[var(--shadow-hairline)] transition-colors hover:border-border-strong"
+                className="group block w-full cursor-pointer overflow-hidden rounded-xl bg-surface p-3 shadow-[var(--shadow-hairline)] transition-colors"
               >
                 <img
                   src={VIDEO_DESPIDO_DATA.previewImageUrl}
@@ -212,25 +208,21 @@ export function LiquidacionEvidenciasExpediente({
             className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end"
           >
             <div className="space-y-2">
-              <p className="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">
-                05 · Expediente documental · Unidad IV
-              </p>
               <h2
                 id="m4-docs-heading"
-                className="text-[clamp(2.25rem,4.6vw,3.8rem)] leading-[1.04] font-bold tracking-[-0.03em] text-foreground"
+                className="type-display"
               >
                 Consulta{" "}
                 <EditorialSerif
                   optical="display"
                   className="font-normal"
-                  style={{ color: ACCENT }}
                 >
                   cada trabajo.
                 </EditorialSerif>
               </h2>
             </div>
 
-            <p className="font-mono text-xs text-muted-foreground">
+            <p className="text-xs text-muted-foreground">
               4 archivos PDF originales
             </p>
           </div>
@@ -240,12 +232,15 @@ export function LiquidacionEvidenciasExpediente({
             className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4"
           >
             {LIQUIDACION_DOCUMENTS.map((doc) => (
-              <article key={doc.id} className="group flex flex-col space-y-4">
+              <article
+                key={doc.id}
+                className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-background"
+              >
                 <button
                   type="button"
                   onClick={() => onPreview(doc)}
                   aria-label={`Visualizar ${doc.fileName}`}
-                  className="aspect-[4/3] w-full cursor-pointer overflow-hidden rounded-lg border border-border bg-background text-left transition-colors group-hover:border-border-strong focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  className="aspect-[4/3] w-full cursor-pointer overflow-hidden border-b border-border bg-white text-left focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-ring"
                 >
                   <img
                     src={doc.thumbnailUrl}
@@ -255,28 +250,28 @@ export function LiquidacionEvidenciasExpediente({
                   />
                 </button>
 
-                <div className="flex flex-1 flex-col justify-between space-y-4">
+                <div className="flex flex-1 flex-col justify-between gap-4 p-5">
                   <div className="space-y-1.5">
-                    <p className="font-mono text-[0.68rem] tracking-wider text-muted-foreground uppercase">
+                    <p className="text-xs text-muted-foreground">
                       <span
                         style={doc.isIntegrator ? { color: ACCENT } : undefined}
-                        className={doc.isIntegrator ? "font-semibold" : ""}
+                        className={doc.isIntegrator ?"font-semibold" :""}
                       >
                         {doc.documentType}
                       </span>{" "}
                       · {doc.pages} {doc.pages === 1 ? "pág." : "págs."}
                     </p>
 
-                    <h3 className="text-sm leading-snug font-bold text-foreground">
+                    <h3 className="type-subheading">
                       {doc.shortLabel}
                     </h3>
 
-                    <p className="text-xs leading-relaxed text-muted-foreground">
+                    <p className="text-sm leading-relaxed text-muted-foreground">
                       {doc.description}
                     </p>
                   </div>
 
-                  <div className="flex items-center justify-between border-t border-border pt-3 text-xs">
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border pt-3 text-xs">
                     <button
                       type="button"
                       onClick={() => onPreview(doc)}

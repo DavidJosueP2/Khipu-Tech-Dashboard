@@ -121,8 +121,6 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
         <div className="space-y-14">
           <ChapterHeader
             headingId="t2-s1-heading"
-            accentVar={MODULE_ACCENT}
-            eyebrow="01 / 04 · MÓDULO 02 · REGISTRO Y FORMALIZACIÓN"
             titleBold="Registro y formalización"
             titleItalic="tributaria"
             lead="Formalizar la empresa tecnológica comienza definiendo sus actividades CIIU, contrastando el catastro público y emitiendo comprobantes en el Facturador SRI."
@@ -137,21 +135,21 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                   <div
                     key={act.code}
                     data-t2-item
-                    className={`flex flex-col justify-between gap-2 rounded-xl border p-5 sm:flex-row sm:items-center sm:gap-5 ${
+                    className={`flex flex-col justify-between gap-2 rounded-xl p-5 sm:flex-row sm:items-center sm:gap-5 ${
                       act.primary
-                        ? "border-module-02/45 bg-module-02/[0.08]"
-                        : "border-border/80 bg-surface/45"
+                        ? "bg-module-02/[0.08]"
+                        : "bg-surface/45"
                     }`}
                   >
                     <div className="space-y-1">
                       <div className="flex items-center gap-2.5">
                         <span
-                          className="font-mono text-sm font-bold tracking-wider"
+                          className="text-sm font-bold"
                           style={{ color: MODULE_ACCENT }}
                         >
                           {act.code}
                         </span>
-                        <span className="rounded-full border border-border-strong bg-background/50 px-2.5 py-0.5 font-mono text-[0.62rem] tracking-wider text-muted-foreground uppercase">
+                        <span className="text-xs text-muted-foreground">
                           {act.role}
                         </span>
                       </div>
@@ -175,7 +173,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                 className="flex items-center gap-5 border-l-2 border-module-02/60 pl-5 pt-1"
               >
                 <span
-                  className="font-mono text-4xl font-bold"
+                  className="text-4xl font-bold"
                   style={{ color: MODULE_ACCENT }}
                 >
                   {FACTURA_SRI_VISUAL.catastroCount}
@@ -194,12 +192,12 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
             {/* Derecha: Comprobante visual del Facturador SRI */}
             <div
               data-t2-item
-              className="flex flex-col justify-between gap-6 rounded-2xl border border-module-02/40 bg-surface/65 p-7 lg:col-span-5"
+              className="flex flex-col justify-between gap-6 rounded-2xl bg-surface/65 p-7 lg:col-span-5"
             >
               <div className="flex items-center justify-between border-b border-border/75 pb-4">
                 <div>
                   <span
-                    className="font-mono text-[0.68rem] font-bold tracking-[0.18em] uppercase"
+                    className="text-xs font-bold"
                     style={{ color: MODULE_ACCENT }}
                   >
                     Facturador SRI · Comprobante
@@ -208,7 +206,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                     Emisión practicada · {FACTURA_SRI_VISUAL.date}
                   </p>
                 </div>
-                <span className="rounded-full bg-module-02/15 px-3 py-1 font-mono text-[0.65rem] font-semibold uppercase" style={{ color: MODULE_ACCENT }}>
+                <span className="text-xs font-semibold" style={{ color: MODULE_ACCENT }}>
                   IVA {FACTURA_SRI_VISUAL.ivaRate}
                 </span>
               </div>
@@ -222,24 +220,24 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                 </div>
                 <div className="flex items-center justify-between text-muted-foreground">
                   <span>Subtotal</span>
-                  <span className="font-mono font-semibold text-foreground">
+                  <span className="font-semibold text-foreground">
                     {FACTURA_SRI_VISUAL.subtotal}
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-muted-foreground">
                   <span>IVA ({FACTURA_SRI_VISUAL.ivaRate})</span>
-                  <span className="font-mono font-semibold text-foreground">
+                  <span className="font-semibold text-foreground">
                     {FACTURA_SRI_VISUAL.iva}
                   </span>
                 </div>
               </div>
 
               <div className="flex items-baseline justify-between border-t border-border/80 pt-5">
-                <span className="text-xs font-semibold tracking-widest text-muted-foreground uppercase">
+                <span className="text-xs font-semibold text-muted-foreground">
                   Total comprobante
                 </span>
                 <span
-                  className="font-mono text-3xl font-bold tracking-tight sm:text-4xl"
+                  className="text-3xl font-bold tracking-tight sm:text-4xl"
                   style={{ color: MODULE_ACCENT }}
                 >
                   {FACTURA_SRI_VISUAL.total}
@@ -262,10 +260,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
         <div className="space-y-14">
           <ChapterHeader
             headingId="t2-s2-heading"
-            accentVar={MODULE_ACCENT}
-            eyebrow="02 / 04 · MÓDULO 02 · CASO INDUMETAL S.A. Y FORMULARIO 2011"
-            titleBold="Documentación"
-            titleItalic="e IVA"
+            titleBold="Documentación e IVA"
             lead="A través del caso práctico INDUMETAL S.A. se trazaron seis comprobantes comerciales para consolidar el IVA del período y simular el Formulario 2011."
             objective="Reconocer qué documentos modifican la liquidación del IVA y visualizar el crédito tributario obtenido."
           />
@@ -273,7 +268,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
           {/* 6 documentos comerciales trabajados en el caso INDUMETAL S.A. */}
           <div className="space-y-3">
             <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-muted-foreground">
-              <span className="font-mono font-semibold tracking-wider text-foreground uppercase">
+              <span className="font-semibold text-foreground">
                 6 comprobantes · Caso {INDUMETAL_IVA_VISUAL.company}
               </span>
               <span className="flex items-center gap-4">
@@ -296,14 +291,14 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                 <div
                   key={item.name}
                   data-t2-item
-                  className={`rounded-xl border p-4 ${
+                  className={`rounded-xl p-4 ${
                     item.affectsIva
-                      ? "border-module-02/40 bg-module-02/[0.07]"
-                      : "border-border/80 bg-surface/40"
+                      ? "bg-module-02/[0.07]"
+                      : "bg-surface/40"
                   }`}
                 >
                   <span
-                    className="block font-mono text-lg font-bold"
+                    className="block text-lg font-bold"
                     style={{
                       color: item.affectsIva
                         ? MODULE_ACCENT
@@ -339,7 +334,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                   className="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-300"
                 />
               </div>
-              <span className="font-mono text-base font-bold text-foreground tabular-nums sm:text-right">
+              <span className="text-base font-bold text-foreground tabular-nums sm:text-right">
                 {INDUMETAL_IVA_VISUAL.purchasesIvaFormatted}
               </span>
             </div>
@@ -371,7 +366,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                   className="h-full rounded-full bg-gradient-to-r from-primary/80 to-primary"
                 />
               </div>
-              <span className="font-mono text-base font-bold text-foreground tabular-nums sm:text-right">
+              <span className="text-base font-bold text-foreground tabular-nums sm:text-right">
                 {INDUMETAL_IVA_VISUAL.netSalesIvaFormatted}
               </span>
             </div>
@@ -398,7 +393,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
               </p>
             </div>
             <div
-              className="font-mono text-4xl font-bold tracking-tight tabular-nums sm:text-5xl"
+              className="text-4xl font-bold tracking-tight tabular-nums sm:text-5xl"
               style={{ color: MODULE_ACCENT }}
             >
               {INDUMETAL_IVA_VISUAL.taxCreditFormatted}
@@ -419,8 +414,6 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
         <div className="space-y-14">
           <ChapterHeader
             headingId="t2-s3-heading"
-            accentVar={MODULE_ACCENT}
-            eyebrow="03 / 04 · MÓDULO 02 · FORMALIZACIÓN COMPLEMENTARIA"
             titleBold="Marca y"
             titleItalic="comercio exterior"
             lead="Actividades complementarias de la Unidad II: protección del signo distintivo ante el SENADI y panorama de importaciones tecnológicas en Ecuador."
@@ -431,18 +424,18 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
             {/* Izquierda: Sello visual de Registro de Marca SENADI */}
             <div
               data-t2-item
-              className="flex flex-col justify-between gap-6 rounded-2xl border border-module-02/40 bg-module-02/[0.07] p-7 lg:col-span-5"
+              className="flex flex-col justify-between gap-6 rounded-2xl bg-module-02/[0.07] p-7 lg:col-span-5"
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
                   <span
-                    className="inline-flex items-center gap-1.5 rounded-full bg-module-02/15 px-3 py-1 font-mono text-[0.65rem] font-bold tracking-widest uppercase"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold"
                     style={{ color: MODULE_ACCENT }}
                   >
                     <ShieldCheck className="size-3.5" />
                     Simulación SENADI
                   </span>
-                  <span className="font-mono text-xs text-muted-foreground">
+                  <span className="text-xs text-muted-foreground">
                     15 sep 2026
                   </span>
                 </div>
@@ -458,7 +451,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
 
                 <div className="border-y border-border/70 py-4">
                   <div
-                    className="font-mono text-4xl font-bold tracking-tight"
+                    className="text-4xl font-bold tracking-tight"
                     style={{ color: MODULE_ACCENT }}
                   >
                     {SENADI_VISUAL.niceClass}
@@ -473,7 +466,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                 {SENADI_VISUAL.pillars.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-full border border-border/80 bg-background/55 px-3 py-1 text-xs font-medium text-foreground/90"
+                    className="text-xs font-medium text-foreground/90"
                   >
                     {tag}
                   </span>
@@ -484,13 +477,13 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
             {/* Derecha: Barras animadas del Top 5 importaciones Ecuador 2024 */}
             <div
               data-t2-item
-              className="flex flex-col justify-between gap-6 rounded-2xl border border-border/80 bg-surface/45 p-7 lg:col-span-7"
+              className="flex flex-col justify-between gap-6 rounded-2xl bg-surface/45 p-7 lg:col-span-7"
             >
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="text-base font-bold text-foreground">
                   Top 5 importaciones tecnológicas de Ecuador (2024)
                 </h3>
-                <span className="font-mono text-[0.68rem] text-muted-foreground uppercase">
+                <span className="text-xs text-muted-foreground">
                   WITS / OMC · USD
                 </span>
               </div>
@@ -505,7 +498,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                       <span className="text-sm font-semibold text-foreground">
                         {item.product}
                       </span>
-                      <span className="block text-[0.7rem] text-muted-foreground">
+                      <span className="block text-xs text-muted-foreground">
                         {item.origin}
                       </span>
                     </div>
@@ -520,7 +513,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                         className="h-full rounded-full opacity-90"
                       />
                     </div>
-                    <span className="font-mono text-sm font-bold text-foreground tabular-nums sm:text-right">
+                    <span className="text-sm font-bold text-foreground tabular-nums sm:text-right">
                       {item.valueUsd}
                     </span>
                   </div>
@@ -543,10 +536,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
         <div className="space-y-14">
           <ChapterHeader
             headingId="t2-s4-heading"
-            accentVar={MODULE_ACCENT}
-            eyebrow="04 / 04 · MÓDULO 02 · TEMA 2.5 · CONTRATACIÓN PYME"
-            titleBold="Obligaciones"
-            titleItalic="laborales PYME"
+            titleBold="Obligaciones laborales para pymes"
             lead="Cierre de la Unidad II: simulación completa de contratación del Analista de Base de Datos para KhipuTech Cía. Ltda., desde verificaciones hasta el aviso IESS."
             objective="Aplicar los requisitos formales de vinculación inicial de personal en una PYME tecnológica."
           />
@@ -556,26 +546,25 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
             <div
               data-hiring-line
               aria-hidden="true"
-              className="absolute top-4 right-8 left-8 hidden h-px md:block"
+              className="absolute inset-x-0 top-0 hidden h-px md:block"
               style={{
                 backgroundColor:
                   "color-mix(in oklch, var(--module-02) 50%, transparent)",
               }}
             />
 
-            <ol className="grid grid-cols-1 gap-8 md:grid-cols-4 md:gap-6">
+            <ol className="grid grid-cols-1 gap-8 md:grid-cols-4 md:gap-6 md:pt-4">
               {PYME_HIRING_STEPS.map((item) => (
                 <li key={item.step} data-t2-item className="relative space-y-3">
                   <div
-                    className="relative z-10 flex size-8 items-center justify-center rounded-full font-mono text-xs font-bold text-primary-foreground"
-                    style={{ backgroundColor: MODULE_ACCENT }}
+                    className="type-editorial-numeral flex size-8 items-center justify-center text-2xl text-module-02"
                   >
                     {item.step}
                   </div>
                   <h3 className="text-base font-bold text-foreground">
                     {item.label}
                   </h3>
-                  <p className="text-xs leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {item.shortNote}
                   </p>
                 </li>
@@ -595,10 +584,10 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                     "color-mix(in oklch, var(--module-02) 45%, transparent)",
                 }}
               >
-                <div className="font-mono text-2xl font-bold text-foreground sm:text-3xl">
+                <div className="text-2xl font-bold text-foreground sm:text-3xl">
                   {kpi.value}
                 </div>
-                <p className="text-xs leading-relaxed text-muted-foreground">
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   {kpi.label}
                 </p>
               </div>
@@ -608,11 +597,11 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
           {/* Puente visual limpio hacia el Módulo 03 (/nomina) */}
           <div
             data-t2-item
-            className="flex flex-col justify-between gap-4 rounded-xl border border-module-03/35 bg-module-03/[0.07] px-6 py-5 sm:flex-row sm:items-center"
+            className="flex flex-col justify-between gap-4 rounded-xl bg-module-03/[0.07] px-6 py-5 sm:flex-row sm:items-center"
           >
             <div className="space-y-1">
               <p
-                className="font-mono text-[0.68rem] font-bold tracking-[0.16em] uppercase"
+                className="text-xs font-bold"
                 style={{ color: "var(--module-03)" }}
               >
                 Continuidad temática · Módulo 03
@@ -625,7 +614,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
 
             <Link
               to="/nomina"
-              className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-module-03/45 bg-background/60 px-4 py-2 text-xs font-semibold tracking-wider uppercase transition-colors hover:bg-surface"
+              className="group inline-flex shrink-0 items-center gap-2 text-xs font-semibold transition-colors hover:bg-surface"
               style={{ color: "var(--module-03)" }}
             >
               <span>Ver Módulo 03</span>
@@ -646,25 +635,17 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
       >
         <div className="space-y-12">
           <div className="space-y-4">
-            <p
-              data-scene-reveal
-              className="font-mono text-[0.72rem] font-medium tracking-[0.2em] uppercase"
-              style={{ color: MODULE_ACCENT }}
-            >
-              Módulo 02 · Expediente y documentos de respaldo
-            </p>
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <h2
                 id="t2-docs-heading"
                 data-scene-reveal
-                className="text-[clamp(2.2rem,4.6vw,3.9rem)] leading-[1.04] font-bold tracking-[-0.03em] text-foreground"
+                className="type-display"
               >
                 Consulta{" "}
                 <EditorialSerif
                   optical="display"
                   className="font-normal"
-                  style={{ color: MODULE_ACCENT }}
                 >
                   cada trabajo.
                 </EditorialSerif>
@@ -672,7 +653,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
 
               <p
                 data-scene-reveal
-                className="font-mono text-xs text-muted-foreground"
+                className="text-xs text-muted-foreground"
               >
                 8 archivos originales · 1 expediente APE 02 + 7 evidencias
               </p>
@@ -703,40 +684,35 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                     loading="lazy"
                     className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <span className="pointer-events-none absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1 text-[0.7rem] font-semibold text-foreground opacity-0 backdrop-blur-xs transition-opacity duration-300 group-hover:opacity-100">
-                    <Eye className="size-3" style={{ color: MODULE_ACCENT }} />
-                    Abrir visor
-                  </span>
                 </button>
 
                 <div className="flex flex-1 flex-col justify-between gap-4 p-5">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between gap-2">
                       <span
-                        className={`inline-flex rounded-full px-2.5 py-0.5 font-mono text-[0.6rem] font-bold tracking-[0.14em] uppercase ${
+                        className={`inline-flex text-xs font-bold ${
                           doc.isIntegrator
-                            ? "text-primary-foreground"
-                            : "border border-border-strong bg-surface-subtle text-muted-foreground"
+                            ? "text-primary"
+                            : "text-muted-foreground"
                         }`}
                         style={
                           doc.isIntegrator
-                            ? { backgroundColor: MODULE_ACCENT }
+                            ? { color: MODULE_ACCENT }
                             : undefined
                         }
                       >
                         {doc.documentType}
                       </span>
-                      <span className="font-mono text-[0.68rem] text-muted-foreground">
+                      <span className="text-xs text-muted-foreground">
                         {doc.pages} {doc.pages === 1 ? "pág." : "págs."}
                       </span>
                     </div>
 
-                    <h3 className="text-sm leading-snug font-bold text-foreground">
+                    <h3 className="type-subheading">
                       {doc.shortLabel}
                     </h3>
 
-                    <p className="text-xs leading-relaxed text-muted-foreground">
+                    <p className="text-sm leading-relaxed text-muted-foreground">
                       {doc.description}
                     </p>
                   </div>

@@ -90,8 +90,6 @@ export function NominaRemuneracionesSection({
       <div className="space-y-16">
         <ChapterHeader
           headingId="m3-s3-heading"
-          accentVar={MODULE_ACCENT}
-          eyebrow="03.03 · MÓDULO 03 · PLANILLA CONSOLIDADA Y CONCILIACIÓN IESS"
           titleBold="Remuneraciones"
           titleItalic="y beneficios"
           lead="Liquidación mensual automatizada de los doce registros del ejercicio académico de TechInstall Solutions: sueldos base, horas con recargo, aportes al IESS, retención IR, beneficios sociales y costo patronal."
@@ -101,7 +99,7 @@ export function NominaRemuneracionesSection({
         {/* Parámetros declarados del ejercicio académico (SBU $482 identificado como dato del ejercicio) */}
         <div
           data-m3-pay-item
-          className="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-module-03/35 bg-module-03/[0.07] px-5 py-4 text-xs"
+          className="flex flex-wrap items-center justify-between gap-4 rounded-xl bg-module-03/[0.07] px-5 py-4 text-xs"
         >
           <div className="flex items-start gap-3">
             <Info
@@ -111,7 +109,7 @@ export function NominaRemuneracionesSection({
             <div className="space-y-0.5">
               <p className="font-semibold text-foreground">
                 Parámetro del ejercicio académico: SBU{" "}
-                <span className="font-mono" style={{ color: MODULE_ACCENT }}>
+                <span  style={{ color: MODULE_ACCENT }}>
                   {PAYROLL_EXERCISE_META.sbuExerciseValue}
                 </span>
               </p>
@@ -122,7 +120,7 @@ export function NominaRemuneracionesSection({
             </div>
           </div>
 
-          <span className="font-mono text-[0.7rem] text-muted-foreground">
+          <span className="text-xs text-muted-foreground">
             {PAYROLL_EXERCISE_META.totalRecords} ·{" "}
             {PAYROLL_EXERCISE_META.recordsSplit}
           </span>
@@ -135,10 +133,10 @@ export function NominaRemuneracionesSection({
             className="space-y-1.5 border-l-2 pl-5"
             style={{ borderColor: MODULE_ACCENT }}
           >
-            <span className="font-mono text-[0.68rem] font-semibold tracking-[0.16em] text-muted-foreground uppercase">
+            <span className="text-xs font-semibold text-muted-foreground">
               Balance del colaborador
             </span>
-            <p className="font-mono text-3xl font-bold tracking-tight text-foreground tabular-nums sm:text-4xl">
+            <p className="text-3xl font-bold tracking-tight text-foreground tabular-nums sm:text-4xl">
               {PAYROLL_EXERCISE_META.netPaid}
             </p>
             <p className="text-xs text-muted-foreground">
@@ -152,11 +150,11 @@ export function NominaRemuneracionesSection({
             className="space-y-1.5 border-l-2 pl-5"
             style={{ borderColor: "var(--primary)" }}
           >
-            <span className="font-mono text-[0.68rem] font-semibold tracking-[0.16em] text-muted-foreground uppercase">
+            <span className="text-xs font-semibold text-muted-foreground">
               Seguridad social (IESS)
             </span>
             <p
-              className="font-mono text-3xl font-bold tracking-tight tabular-nums sm:text-4xl"
+              className="text-3xl font-bold tracking-tight tabular-nums sm:text-4xl"
               style={{ color: "var(--primary)" }}
             >
               {PAYROLL_EXERCISE_META.iessTotal}
@@ -172,11 +170,11 @@ export function NominaRemuneracionesSection({
             className="space-y-1.5 border-l-2 pl-5"
             style={{ borderColor: "var(--accent-warm)" }}
           >
-            <span className="font-mono text-[0.68rem] font-semibold tracking-[0.16em] text-muted-foreground uppercase">
+            <span className="text-xs font-semibold text-muted-foreground">
               Costo laboral patronal
             </span>
             <p
-              className="font-mono text-3xl font-bold tracking-tight tabular-nums sm:text-4xl"
+              className="text-3xl font-bold tracking-tight tabular-nums sm:text-4xl"
               style={{ color: "var(--accent-warm)" }}
             >
               {PAYROLL_EXERCISE_META.employerTotalCost}
@@ -191,10 +189,10 @@ export function NominaRemuneracionesSection({
         {/* Composición visual animada del costo patronal mensual */}
         <div data-m3-bars-group className="space-y-4">
           <div className="flex flex-wrap items-baseline justify-between gap-2">
-            <h3 className="text-sm font-bold tracking-wide text-foreground uppercase">
+            <h3 className="text-sm font-bold text-foreground">
               Composición del costo mensual integral (USD 17.189,48)
             </h3>
-            <span className="font-mono text-xs text-muted-foreground">
+            <span className="text-xs text-muted-foreground">
               {PAYROLL_EXERCISE_META.overtimeNote}
             </span>
           </div>
@@ -224,7 +222,7 @@ export function NominaRemuneracionesSection({
                     className="h-full rounded-full opacity-90"
                   />
                 </div>
-                <span className="font-mono text-xs font-bold text-foreground tabular-nums sm:text-right">
+                <span className="text-xs font-bold text-foreground tabular-nums sm:text-right">
                   {bar.value}
                 </span>
               </div>
@@ -248,7 +246,7 @@ export function NominaRemuneracionesSection({
             <button
               type="button"
               onClick={() => onPreview(ape03)}
-              className="inline-flex cursor-pointer items-center gap-1.5 font-mono text-xs font-medium transition-colors hover:text-foreground"
+              className="inline-flex cursor-pointer items-center gap-1.5 text-xs font-medium transition-colors hover:text-foreground"
               style={{ color: MODULE_ACCENT }}
             >
               <Eye className="size-3.5" />
@@ -256,10 +254,10 @@ export function NominaRemuneracionesSection({
             </button>
           </div>
 
-          <div className="overflow-x-auto rounded-xl border border-border/80 bg-surface/40">
+          <div className="overflow-x-auto rounded-xl bg-surface/40">
             <table className="w-full min-w-[64rem] border-collapse text-left text-xs">
               <thead>
-                <tr className="border-b border-border/80 bg-surface/75 font-mono text-[0.64rem] tracking-wider text-muted-foreground uppercase">
+                <tr className="border-b border-border/80 bg-surface/75 text-xs text-muted-foreground">
                   <th className="px-4 py-3.5 font-semibold">
                     Cargo / Colaborador
                   </th>
@@ -297,53 +295,53 @@ export function NominaRemuneracionesSection({
                   <tr
                     key={`${row.role}-${row.collaborator}`}
                     className={`transition-colors hover:bg-surface/70 ${
-                      row.isPublicTest ? "bg-accent-warm/[0.04]" : ""
+                      row.isPublicTest ?"bg-accent-warm/[0.04]" :""
                     }`}
                   >
                     <td className="px-4 py-3">
                       <span className="block font-semibold text-foreground">
                         {row.role}
                       </span>
-                      <span className="text-[0.7rem] text-muted-foreground">
+                      <span className="text-xs text-muted-foreground">
                         {row.collaborator}
                       </span>
                     </td>
-                    <td className="px-3 py-3 text-right font-mono tabular-nums text-foreground/85">
+                    <td className="px-3 py-3 text-right tabular-nums text-foreground/85">
                       {row.baseSalary}
                     </td>
-                    <td className="px-3 py-3 text-right font-mono tabular-nums text-foreground">
+                    <td className="px-3 py-3 text-right tabular-nums text-foreground">
                       {row.taxableBase}
                     </td>
-                    <td className="px-3 py-3 text-right font-mono tabular-nums text-muted-foreground">
+                    <td className="px-3 py-3 text-right tabular-nums text-muted-foreground">
                       {row.iessPersonal}
                     </td>
-                    <td className="px-3 py-3 text-right font-mono tabular-nums text-muted-foreground">
+                    <td className="px-3 py-3 text-right tabular-nums text-muted-foreground">
                       {row.incomeTax}
                     </td>
-                    <td className="px-3 py-3 text-right font-mono tabular-nums text-foreground/85">
+                    <td className="px-3 py-3 text-right tabular-nums text-foreground/85">
                       {row.thirteenth}
                     </td>
-                    <td className="px-3 py-3 text-right font-mono tabular-nums text-foreground/85">
+                    <td className="px-3 py-3 text-right tabular-nums text-foreground/85">
                       {row.fourteenth}
                     </td>
-                    <td className="px-3 py-3 text-right font-mono tabular-nums text-foreground/85">
+                    <td className="px-3 py-3 text-right tabular-nums text-foreground/85">
                       {row.reserveFunds}
                     </td>
                     <td
-                      className="px-3 py-3 text-right font-mono font-bold tabular-nums"
+                      className="px-3 py-3 text-right font-bold tabular-nums"
                       style={{ color: MODULE_ACCENT }}
                     >
                       {row.netPay}
                     </td>
-                    <td className="px-4 py-3 text-right font-mono font-semibold tabular-nums text-foreground">
+                    <td className="px-4 py-3 text-right font-semibold tabular-nums text-foreground">
                       {row.employerCost}
                     </td>
                   </tr>
                 ))}
               </tbody>
               <tfoot>
-                <tr className="border-t-2 border-module-03/45 bg-surface/85 font-mono text-xs font-bold text-foreground">
-                  <td className="px-4 py-3.5 uppercase">
+                <tr className="border-t-2 border-module-03/45 bg-surface/85 text-xs font-bold text-foreground">
+                  <td className="px-4 py-3.5">
                     Totales consolidados (12 registros)
                   </td>
                   <td className="px-3 py-3.5 text-right tabular-nums">
@@ -384,7 +382,7 @@ export function NominaRemuneracionesSection({
             </table>
           </div>
 
-          <div className="flex flex-col gap-1 text-[0.72rem] text-muted-foreground sm:flex-row sm:justify-between">
+          <div className="flex flex-col gap-1 text-xs text-muted-foreground sm:flex-row sm:justify-between">
             <p>
               <strong className="text-foreground">*</strong> Acumulación
               voluntaria solicitada por el colaborador ·{" "}
@@ -401,7 +399,7 @@ export function NominaRemuneracionesSection({
         {/* Tabla 10 original de APE 03: Conciliación con el IESS */}
         <div
           data-m3-bars-group
-          className="grid grid-cols-1 items-center gap-8 rounded-2xl border border-border/80 bg-surface/45 p-7 lg:grid-cols-12"
+          className="grid grid-cols-1 items-center gap-8 rounded-2xl bg-surface/45 p-7 lg:grid-cols-12"
         >
           <div className="space-y-4 lg:col-span-8">
             <div>
@@ -425,7 +423,7 @@ export function NominaRemuneracionesSection({
                     <span className="text-xs font-semibold text-foreground">
                       {row.concept}
                     </span>
-                    <span className="block font-mono text-[0.66rem] text-muted-foreground">
+                    <span className="block text-xs text-muted-foreground">
                       Tasa {row.rate} · {row.basis}
                     </span>
                   </div>
@@ -440,7 +438,7 @@ export function NominaRemuneracionesSection({
                       className="h-full rounded-full opacity-90"
                     />
                   </div>
-                  <span className="font-mono text-sm font-bold text-foreground tabular-nums sm:text-right">
+                  <span className="text-sm font-bold text-foreground tabular-nums sm:text-right">
                     {row.amount}
                   </span>
                 </div>
@@ -449,16 +447,16 @@ export function NominaRemuneracionesSection({
           </div>
 
           <div className="flex flex-col justify-center space-y-2 border-t border-border/70 pt-6 lg:col-span-4 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-8">
-            <span className="font-mono text-[0.68rem] font-bold tracking-[0.18em] text-muted-foreground uppercase">
+            <span className="text-xs font-bold text-muted-foreground">
               Total exigible ante el IESS
             </span>
             <p
-              className="font-mono text-4xl font-bold tracking-tight tabular-nums sm:text-5xl"
+              className="text-4xl font-bold tracking-tight tabular-nums sm:text-5xl"
               style={{ color: MODULE_ACCENT }}
             >
               {PAYROLL_EXERCISE_META.iessTotal}
             </p>
-            <p className="text-xs leading-relaxed text-muted-foreground">
+            <p className="text-sm leading-relaxed text-muted-foreground">
               Planilla única mensual de aportes personales, patronales y fondos
               de reserva devengados para el ejercicio de 12 registros.
             </p>

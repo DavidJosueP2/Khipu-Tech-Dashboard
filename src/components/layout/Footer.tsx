@@ -14,7 +14,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8">
           {/* Marca principal */}
           <div className="space-y-4 md:col-span-5">
-            <div className="flex items-baseline text-3xl tracking-tight">
+            <div className="type-feature">
               <span className="font-bold text-foreground">Khipu</span>
               <EditorialSerif
                 optical="display"
@@ -39,7 +39,7 @@ export function Footer() {
 
           {/* Módulos */}
           <div className="space-y-3 md:col-span-4">
-            <h2 className="type-overline">Módulos de gestión</h2>
+            <h2 className="type-subheading">Módulos de gestión</h2>
             <ul className="divide-y divide-border/70 border-t border-border/70">
               {MODULES.map((mod) => (
                 <li key={mod.id}>
@@ -47,15 +47,7 @@ export function Footer() {
                     to={mod.path}
                     className="group flex items-center justify-between py-2.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
                   >
-                    <span className="flex items-baseline gap-2.5">
-                      <span
-                        className="type-editorial-numeral text-base"
-                        style={{ color: mod.accentVar }}
-                      >
-                        {mod.id}
-                      </span>
-                      <span>{mod.fullName}</span>
-                    </span>
+                    <span>{mod.fullName}</span>
                     <ArrowUpRight className="size-3.5 opacity-45 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100" />
                   </Link>
                 </li>
@@ -65,7 +57,7 @@ export function Footer() {
 
           {/* Equipo */}
           <div className="space-y-3 md:col-span-3">
-            <h2 className="type-overline">Equipo desarrollador</h2>
+            <h2 className="type-subheading">Equipo desarrollador</h2>
             <ul className="space-y-1.5 border-t border-border/70 pt-3 text-sm text-muted-foreground">
               {INSTITUTION.team.map((member) => (
                 <li key={member}>{member}</li>

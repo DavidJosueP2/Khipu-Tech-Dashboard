@@ -73,18 +73,14 @@ export function LiquidacionDoceCasosSection({
           className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end"
         >
           <div className="space-y-3">
-            <p className="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">
-              03 · Práctica de liquidaciones laborales
-            </p>
             <h2
               id="m4-cases-heading"
-              className="text-[clamp(2.25rem,4.6vw,3.8rem)] leading-[1.04] font-bold tracking-[-0.03em] text-foreground"
+              className="type-display"
             >
               Doce casos{" "}
               <EditorialSerif
                 optical="display"
                 className="font-normal"
-                style={{ color: ACCENT }}
               >
                 resueltos.
               </EditorialSerif>
@@ -94,7 +90,7 @@ export function LiquidacionDoceCasosSection({
           <button
             type="button"
             onClick={() => onPreview(casesDoc)}
-            className="group inline-flex cursor-pointer items-center gap-1.5 self-start border-b border-foreground pb-1 text-xs font-semibold tracking-[0.12em] text-foreground uppercase transition-opacity hover:opacity-70 lg:self-end"
+            className="editorial-action cursor-pointer self-start lg:self-end"
           >
             <span>Abrir documento original (12 págs.)</span>
             <ArrowUpRight className="size-3.5" />
@@ -121,7 +117,7 @@ export function LiquidacionDoceCasosSection({
                 key={tab.id}
                 type="button"
                 onClick={() => setFilter(tab.id)}
-                className={`relative cursor-pointer pb-1 text-xs font-semibold tracking-[0.08em] uppercase transition-colors ${
+                className={`relative cursor-pointer pb-1 text-xs font-semibold transition-colors ${
                   active
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
@@ -170,7 +166,7 @@ export function LiquidacionDoceCasosSection({
                 </p>
               </div>
 
-              <div className="font-mono text-xs text-muted-foreground">
+              <div className="text-xs text-muted-foreground">
                 {item.region} · {item.period} · {item.salary}
               </div>
 
@@ -188,7 +184,7 @@ export function LiquidacionDoceCasosSection({
               </div>
 
               <div
-                className="font-mono text-base font-bold tabular-nums md:text-right"
+                className="text-base font-bold tabular-nums md:text-right"
                 style={{
                   color: item.hasIndemnityOrDesahucio
                     ? ACCENT

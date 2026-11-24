@@ -48,7 +48,7 @@ export function PdfViewerSheet({ document, onClose }: PdfViewerSheetProps) {
         {document && (
           <>
             <SheetHeader className="border-b border-border px-6 py-5 pr-14 text-left">
-              <div className="flex flex-wrap items-center gap-2 text-[0.7rem] font-semibold tracking-[0.14em] text-primary uppercase">
+              <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-primary">
                 <span>{document.documentType}</span>
                 <span aria-hidden="true" className="text-border-strong">
                   ·
@@ -65,7 +65,7 @@ export function PdfViewerSheet({ document, onClose }: PdfViewerSheetProps) {
 
               <SheetDescription className="text-xs text-muted-foreground">
                 {document.relationToApe} · Archivo original:{" "}
-                <code className="text-[0.72rem] text-foreground/85">
+                <code className="text-xs text-foreground/85">
                   {document.fileName}
                 </code>
               </SheetDescription>
@@ -74,7 +74,7 @@ export function PdfViewerSheet({ document, onClose }: PdfViewerSheetProps) {
                 <a
                   href={document.url}
                   download={document.fileName}
-                  className="inline-flex h-8 items-center gap-1.5 rounded-full bg-primary px-4 text-xs font-semibold text-primary-foreground transition-all hover:brightness-110 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  className="editorial-action shrink-0"
                 >
                   <Download className="size-3.5" />
                   <span>Descargar PDF</span>
@@ -84,7 +84,7 @@ export function PdfViewerSheet({ document, onClose }: PdfViewerSheetProps) {
                   href={document.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex h-8 items-center gap-1.5 rounded-full border border-border bg-surface px-4 text-xs font-medium text-foreground transition-colors hover:border-border-strong hover:bg-surface-subtle focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                  className="editorial-action shrink-0"
                 >
                   <ExternalLink className="size-3.5 text-primary" />
                   <span>Abrir en pestaña nueva</span>
@@ -101,7 +101,7 @@ export function PdfViewerSheet({ document, onClose }: PdfViewerSheetProps) {
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-2 border-t border-border bg-surface px-6 py-3 text-xs text-muted-foreground">
-              <span className="inline-flex items-center gap-1.5 font-mono text-[0.7rem]">
+              <span className="inline-flex items-center gap-1.5 text-xs">
                 <FileText className="size-3.5 text-primary" />
                 {document.relativePath}
               </span>

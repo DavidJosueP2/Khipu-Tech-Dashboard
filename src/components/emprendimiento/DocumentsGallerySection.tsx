@@ -62,18 +62,12 @@ export function DocumentsGallerySection({
     >
       <div className="space-y-12">
         <div className="space-y-4">
-          <p
-            data-gallery-head
-            className="font-mono text-[0.72rem] font-medium tracking-[0.2em] text-primary/90 uppercase"
-          >
-            Módulo 01 · Documentos de respaldo
-          </p>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <h2
               id="respaldo-heading"
               data-gallery-head
-              className="text-[clamp(2.2rem,4.6vw,3.9rem)] leading-[1.04] font-bold tracking-[-0.03em] text-foreground"
+              className="type-display"
             >
               Consulta{" "}
               <EditorialSerif
@@ -86,7 +80,7 @@ export function DocumentsGallerySection({
 
             <p
               data-gallery-head
-              className="font-mono text-xs text-muted-foreground"
+              className="text-xs text-muted-foreground"
             >
               6 archivos originales · 1 informe APE + 5 evidencias de fase
             </p>
@@ -121,11 +115,6 @@ export function DocumentsGallerySection({
                   loading="lazy"
                   className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                 />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <span className="pointer-events-none absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1 text-[0.7rem] font-semibold text-foreground opacity-0 backdrop-blur-xs transition-opacity duration-300 group-hover:opacity-100">
-                  <Eye className="size-3 text-primary" />
-                  Abrir visor
-                </span>
               </button>
 
               {/* Ficha editorial del documento */}
@@ -133,24 +122,24 @@ export function DocumentsGallerySection({
                 <div className="space-y-2.5">
                   <div className="flex items-center justify-between gap-2">
                     <span
-                      className={`inline-flex rounded-full px-2.5 py-0.5 font-mono text-[0.62rem] font-bold tracking-[0.14em] uppercase ${
+                      className={`inline-flex text-xs font-bold ${
                         doc.isIntegrator
-                          ? "bg-primary text-primary-foreground"
-                          : "border border-border-strong bg-surface-subtle text-muted-foreground"
+                          ? "text-primary"
+                          : "text-muted-foreground"
                       }`}
                     >
                       {doc.documentType}
                     </span>
-                    <span className="font-mono text-[0.68rem] text-muted-foreground">
+                    <span className="text-xs text-muted-foreground">
                       {doc.pages} {doc.pages === 1 ? "pág." : "págs."} · {doc.date}
                     </span>
                   </div>
 
-                  <h3 className="text-base leading-snug font-bold text-foreground">
+                  <h3 className="type-subheading">
                     {doc.shortLabel}
                   </h3>
 
-                  <p className="text-xs leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {doc.summary}
                   </p>
                 </div>

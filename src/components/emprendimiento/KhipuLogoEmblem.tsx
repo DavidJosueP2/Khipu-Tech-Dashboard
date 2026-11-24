@@ -95,7 +95,7 @@ export function KhipuLogoEmblem() {
         <div className="flex items-center justify-center gap-1 text-2xl font-bold tracking-tight text-foreground">
           <span>KHIPU</span>
           <span className="font-light text-foreground/85">TECH</span>
-          <span className="font-mono text-base font-semibold text-primary">
+          <span className="text-base font-semibold text-primary">
             &lt;/&gt;
           </span>
         </div>

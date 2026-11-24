@@ -38,13 +38,13 @@
   /* ------------------------------------------------------------------------
    * 2. Escala tipográfica editorial y pesos
    * ---------------------------------------------------------------------- */
-  --type-hero-size: clamp(3rem, 7vw, 6.25rem);
-  --type-hero-leading: 0.98;
-  --type-hero-tracking: -0.034em;
+  --type-hero-size: clamp(2.9rem, 10.2vw, 9rem);
+  --type-hero-leading: 0.92;
+  --type-hero-tracking: -0.04em;
 
-  --type-display-size: clamp(2rem, 3.6vw, 3.35rem);
-  --type-display-leading: 1.06;
-  --type-display-tracking: -0.028em;
+  --type-display-size: clamp(2.5rem, 5.05vw, 5.4rem);
+  --type-display-leading: 0.99;
+  --type-display-tracking: -0.038em;
 
   --type-h1-size: clamp(1.75rem, 2.5vw, 2.35rem);
   --type-h1-leading: 1.15;
@@ -62,17 +62,14 @@
   --type-h4-leading: 1.4;
   --type-h4-tracking: -0.006em;
 
-  --type-body-size: 0.96875rem;
+  --type-body-size: 1rem;
   --type-body-leading: 1.68;
 
   --type-body-sm-size: 0.875rem;
   --type-body-sm-leading: 1.58;
 
-  --type-caption-size: 0.75rem;
+  --type-caption-size: 0.8125rem;
   --type-caption-leading: 1.45;
-
-  --type-overline-size: 0.6875rem;
-  --type-overline-tracking: 0.18em;
 
   --weight-light: 300;
   --weight-regular: 400;
@@ -160,7 +157,7 @@
   --space-page-x: clamp(1.5rem, 4.5vw, 4rem);
   --space-page-y: clamp(1.5rem, 3vw, 2.5rem);
   --space-section: clamp(5rem, 10vw, 9rem);
-  --content-max-width: 84rem;
+  --content-max-width: 96rem;
   --prose-max-width: 42rem;
 
   --shadow-hairline: 0 1px 2px rgba(20, 23, 29, 0.05);

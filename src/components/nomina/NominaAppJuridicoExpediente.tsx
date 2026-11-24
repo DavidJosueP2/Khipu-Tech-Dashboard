@@ -4,7 +4,6 @@ import {
   Download,
   ExternalLink,
   Eye,
-  Maximize2,
   Scale,
 } from "lucide-react";
 
@@ -99,8 +98,6 @@ export function NominaAppJuridicoExpediente({
         <div className="space-y-14">
           <ChapterHeader
             headingId="m3-s4-heading"
-            accentVar={MODULE_ACCENT}
-            eyebrow="03.04 · MÓDULO 03 · APLICACIÓN DESARROLLADA (ANEXOS 4 Y 5)"
             titleBold="Nómina"
             titleItalic="automatizada"
             lead="Evidencias documentadas en escritorio y móvil de la herramienta web desarrollada durante el semestre para parametrizar, procesar y emitir los roles de pago de TechInstall Solutions."
@@ -112,25 +109,24 @@ export function NominaAppJuridicoExpediente({
             <div
               data-m3-flow-line
               aria-hidden="true"
-              className="absolute top-4 right-8 left-8 hidden h-px lg:block"
+              className="absolute inset-x-0 top-0 hidden h-px lg:block"
               style={{
                 backgroundColor:
                   "color-mix(in oklch, var(--module-03) 50%, transparent)",
               }}
             />
-            <ol className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5">
+            <ol className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5 lg:pt-4">
               {AUTOMATION_FLOW_STEPS.map((item) => (
                 <li key={item.step} data-m3-card className="relative space-y-2.5">
                   <div
-                    className="relative z-10 flex size-8 items-center justify-center rounded-full font-mono text-xs font-bold text-primary-foreground"
-                    style={{ backgroundColor: MODULE_ACCENT }}
+                    className="type-editorial-numeral flex size-8 items-center justify-center text-2xl text-module-03"
                   >
                     {item.step}
                   </div>
                   <h3 className="text-sm font-bold text-foreground">
                     {item.title}
                   </h3>
-                  <p className="text-xs leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {item.detail}
                   </p>
                 </li>
@@ -144,7 +140,7 @@ export function NominaAppJuridicoExpediente({
               <article
                 key={screen.id}
                 data-m3-card
-                className="group flex flex-col overflow-hidden rounded-2xl border border-border/80 bg-surface/55 transition-colors hover:border-module-03/60"
+                className="group flex flex-col overflow-hidden rounded-2xl bg-surface/55 transition-colors"
               >
                 <button
                   type="button"
@@ -158,17 +154,10 @@ export function NominaAppJuridicoExpediente({
                     loading="lazy"
                     className="h-full w-full object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                   />
-                  <span className="pointer-events-none absolute right-3 bottom-3 inline-flex items-center gap-1 rounded-full bg-background/90 px-2.5 py-1 font-mono text-[0.65rem] font-semibold text-foreground backdrop-blur-xs">
-                    <Maximize2
-                      className="size-3"
-                      style={{ color: MODULE_ACCENT }}
-                    />
-                    {screen.pageRef}
-                  </span>
                 </button>
 
                 <div className="space-y-2 p-5">
-                  <div className="flex items-center justify-between gap-2 font-mono text-[0.65rem] uppercase">
+                  <div className="flex items-center justify-between gap-2 text-xs">
                     <span
                       className="font-semibold"
                       style={{ color: MODULE_ACCENT }}
@@ -180,7 +169,7 @@ export function NominaAppJuridicoExpediente({
                   <h3 className="text-sm font-bold text-foreground">
                     {screen.title}
                   </h3>
-                  <p className="text-xs leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {screen.caption}
                   </p>
                 </div>
@@ -191,7 +180,7 @@ export function NominaAppJuridicoExpediente({
           {/* Funcionalidades documentadas + Enlaces originales del Anexo 5 */}
           <div className="grid grid-cols-1 gap-8 border-t border-border/70 pt-8 lg:grid-cols-12">
             <div data-m3-card className="space-y-3 lg:col-span-7">
-              <p className="font-mono text-[0.68rem] font-semibold tracking-wider text-muted-foreground uppercase">
+              <p className="text-xs font-semibold text-muted-foreground">
                 Funcionalidades documentadas en el informe
               </p>
               <ul className="grid grid-cols-1 gap-2.5 sm:grid-cols-2">
@@ -211,7 +200,7 @@ export function NominaAppJuridicoExpediente({
             </div>
 
             <div data-m3-card className="space-y-3 lg:col-span-5">
-              <p className="font-mono text-[0.68rem] font-semibold tracking-wider text-muted-foreground uppercase">
+              <p className="text-xs font-semibold text-muted-foreground">
                 Accesos originales registrados (Anexo 5 · pág. 44)
               </p>
               <div className="space-y-2.5">
@@ -221,13 +210,13 @@ export function NominaAppJuridicoExpediente({
                     href={link.url}
                     target="_blank"
                     rel="noreferrer noopener"
-                    className="group flex items-center justify-between gap-4 rounded-xl border border-module-03/35 bg-module-03/[0.07] px-4 py-3 transition-colors hover:border-module-03 hover:bg-module-03/[0.13]"
+                    className="group flex items-center justify-between gap-4 rounded-xl bg-module-03/[0.07] px-4 py-3 transition-colors hover:bg-module-03/[0.13]"
                   >
                     <div>
                       <span className="block text-xs font-bold text-foreground">
                         {link.label}
                       </span>
-                      <span className="block font-mono text-[0.68rem] text-muted-foreground">
+                      <span className="block text-xs text-muted-foreground">
                         {link.url.replace("https://", "")}
                       </span>
                     </div>
@@ -255,22 +244,20 @@ export function NominaAppJuridicoExpediente({
         <div className="space-y-14">
           <ChapterHeader
             headingId="m3-s5-heading"
-            accentVar={LEGAL_ACCENT}
-            eyebrow="03.05 · MÓDULO 03 · EVIDENCIA JURISPRUDENCIAL COMPLEMENTARIA"
             titleBold="Contexto jurídico"
             titleItalic="laboral"
             lead={CASO_JURIDICO_DATA.subtitle}
             objective="Resguardar el análisis de vulneración contractual, exigencias sobrevinientes y tutela del derecho al trabajo documentado en la infografía."
           />
 
-          <div className="grid grid-cols-1 items-start gap-10 rounded-2xl border border-accent-warm/30 bg-accent-warm/[0.045] p-6 md:p-9 lg:grid-cols-12">
+          <div className="grid grid-cols-1 items-start gap-10 rounded-2xl bg-accent-warm/[0.045] p-6 md:p-9 lg:grid-cols-12">
             {/* Izquierda: Vista previa real de la infografía */}
             <div data-m3-card className="space-y-3 lg:col-span-5">
               <button
                 type="button"
                 onClick={() => onPreview(infografiaDoc)}
                 aria-label="Abrir Infografia Caso Juridico Laboral.pdf"
-                className="group relative block w-full cursor-pointer overflow-hidden rounded-xl border border-border/80 bg-white p-2 text-left transition-all hover:border-accent-warm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                className="group relative block w-full cursor-pointer overflow-hidden rounded-xl bg-white p-2 text-left transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               >
                 <img
                   src={NOMINA_VISUAL_ASSETS.infografia}
@@ -278,17 +265,13 @@ export function NominaAppJuridicoExpediente({
                   loading="lazy"
                   className="w-full rounded-md object-contain transition-transform duration-500 group-hover:scale-[1.02]"
                 />
-                <span className="pointer-events-none absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1.5 text-[0.7rem] font-semibold text-foreground backdrop-blur-xs">
-                  <Eye className="size-3" style={{ color: LEGAL_ACCENT }} />
-                  Ver infografía completa
-                </span>
               </button>
 
               <a
                 href={CASO_JURIDICO_DATA.pitchUrl}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="inline-flex items-center gap-1.5 font-mono text-xs font-medium transition-colors hover:text-foreground"
+                className="inline-flex items-center gap-1.5 text-xs font-medium transition-colors hover:text-foreground"
                 style={{ color: LEGAL_ACCENT }}
               >
                 <span>Enlace al pitch de exposición (registrado en la infografía)</span>
@@ -305,7 +288,7 @@ export function NominaAppJuridicoExpediente({
               >
                 <div className="space-y-2">
                   <p
-                    className="inline-flex items-center gap-1.5 font-mono text-[0.68rem] font-bold tracking-[0.16em] uppercase"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold"
                     style={{ color: LEGAL_ACCENT }}
                   >
                     <Scale className="size-3.5" />
@@ -313,7 +296,7 @@ export function NominaAppJuridicoExpediente({
                   </p>
                   {CASO_JURIDICO_DATA.cases.map((c) => (
                     <div key={c.number}>
-                      <span className="block font-mono text-sm font-bold text-foreground">
+                      <span className="block text-sm font-bold text-foreground">
                         {c.number}
                       </span>
                       <span className="block text-xs text-muted-foreground">
@@ -328,16 +311,16 @@ export function NominaAppJuridicoExpediente({
                 </div>
 
                 <div className="flex flex-col justify-center border-t border-border/60 pt-4 sm:border-t-0 sm:border-l sm:pt-0 sm:pl-6">
-                  <span className="font-mono text-[0.66rem] font-semibold tracking-wider text-muted-foreground uppercase">
+                  <span className="text-xs font-semibold text-muted-foreground">
                     {CASO_JURIDICO_DATA.claimedStatus}
                   </span>
                   <span
-                    className="mt-1 font-mono text-3xl font-bold tracking-tight tabular-nums sm:text-4xl"
+                    className="mt-1 text-3xl font-bold tracking-tight tabular-nums sm:text-4xl"
                     style={{ color: LEGAL_ACCENT }}
                   >
                     {CASO_JURIDICO_DATA.claimedAmount}
                   </span>
-                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {CASO_JURIDICO_DATA.pendingClaims}
                   </p>
                 </div>
@@ -353,7 +336,7 @@ export function NominaAppJuridicoExpediente({
                     <h3 className="text-xs font-bold text-foreground">
                       {fact.label}
                     </h3>
-                    <p className="text-xs leading-relaxed text-muted-foreground">
+                    <p className="text-sm leading-relaxed text-muted-foreground">
                       {fact.detail}
                     </p>
                   </div>
@@ -362,17 +345,17 @@ export function NominaAppJuridicoExpediente({
 
               {/* Derechos y sustento legal */}
               <div data-m3-card className="space-y-2.5">
-                <p className="font-mono text-[0.66rem] font-semibold tracking-wider text-muted-foreground uppercase">
+                <p className="text-xs font-semibold text-muted-foreground">
                   Derechos vulnerados y fundamento legal
                 </p>
                 <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
                   {CASO_JURIDICO_DATA.rightsAndBasis.map((item) => (
                     <div
                       key={item.code}
-                      className="rounded-lg border border-border/75 bg-background/50 px-3.5 py-2.5"
+                      className="rounded-lg bg-background/50 px-3.5 py-2.5"
                     >
                       <span
-                        className="font-mono text-[0.68rem] font-bold"
+                        className="text-xs font-bold"
                         style={{ color: LEGAL_ACCENT }}
                       >
                         {item.code}
@@ -388,7 +371,7 @@ export function NominaAppJuridicoExpediente({
               {/* Regla de oro registrada en la infografía */}
               <blockquote
                 data-m3-card
-                className="border-l-2 pl-4 text-xs leading-relaxed text-foreground/90 italic sm:text-sm"
+                className="editorial-aside serif-complete-italic leading-relaxed text-foreground/90"
                 style={{ borderColor: LEGAL_ACCENT }}
               >
                 <span className="not-italic font-semibold text-foreground">
@@ -412,25 +395,17 @@ export function NominaAppJuridicoExpediente({
       >
         <div className="space-y-12">
           <div className="space-y-4">
-            <p
-              data-scene-reveal
-              className="font-mono text-[0.72rem] font-medium tracking-[0.2em] uppercase"
-              style={{ color: MODULE_ACCENT }}
-            >
-              03.06 · Módulo 03 · Expediente documental de la Unidad III
-            </p>
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <h2
                 id="m3-docs-heading"
                 data-scene-reveal
-                className="text-[clamp(2.2rem,4.6vw,3.9rem)] leading-[1.04] font-bold tracking-[-0.03em] text-foreground"
+                className="type-display"
               >
                 Consulta{" "}
                 <EditorialSerif
                   optical="display"
                   className="font-normal"
-                  style={{ color: MODULE_ACCENT }}
                 >
                   cada trabajo.
                 </EditorialSerif>
@@ -438,7 +413,7 @@ export function NominaAppJuridicoExpediente({
 
               <p
                 data-scene-reveal
-                className="font-mono text-xs text-muted-foreground"
+                className="text-xs text-muted-foreground"
               >
                 4 archivos originales · APE 03 definitivo, avance preliminar y 2
                 trabajos complementarios
@@ -471,40 +446,35 @@ export function NominaAppJuridicoExpediente({
                     loading="lazy"
                     className="h-full w-full object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                   />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                  <span className="pointer-events-none absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1 text-[0.7rem] font-semibold text-foreground opacity-0 backdrop-blur-xs transition-opacity duration-300 group-hover:opacity-100">
-                    <Eye className="size-3" style={{ color: MODULE_ACCENT }} />
-                    Abrir visor
-                  </span>
                 </button>
 
                 <div className="flex flex-1 flex-col justify-between gap-4 p-5">
                   <div className="space-y-2">
                     <div className="flex items-center justify-between gap-2">
                       <span
-                        className={`inline-flex rounded-full px-2.5 py-0.5 font-mono text-[0.6rem] font-bold tracking-[0.12em] uppercase ${
+                        className={`inline-flex text-xs font-bold ${
                           doc.isIntegrator
-                            ? "text-primary-foreground"
-                            : "border border-border-strong bg-surface-subtle text-muted-foreground"
+                            ? "text-primary"
+                            : "text-muted-foreground"
                         }`}
                         style={
                           doc.isIntegrator
-                            ? { backgroundColor: MODULE_ACCENT }
+                            ? { color: MODULE_ACCENT }
                             : undefined
                         }
                       >
                         {doc.documentType}
                       </span>
-                      <span className="font-mono text-[0.68rem] text-muted-foreground">
+                      <span className="text-xs text-muted-foreground">
                         {doc.pages} {doc.pages === 1 ? "pág." : "págs."}
                       </span>
                     </div>
 
-                    <h3 className="text-sm leading-snug font-bold text-foreground">
+                    <h3 className="type-subheading">
                       {doc.shortLabel}
                     </h3>
 
-                    <p className="text-xs leading-relaxed text-muted-foreground">
+                    <p className="text-sm leading-relaxed text-muted-foreground">
                       {doc.description}
                     </p>
                   </div>

@@ -78,25 +78,21 @@ export function LiquidacionPazYSalvoSection({
             className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end"
           >
             <div className="space-y-3">
-              <p className="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">
-                01 · APE 04 · Herramienta web
-              </p>
               <h2
                 id="m4-app-heading"
-                className="text-[clamp(2.25rem,4.6vw,3.8rem)] leading-[1.04] font-bold tracking-[-0.03em] text-foreground"
+                className="type-display"
               >
                 Sistema{" "}
                 <EditorialSerif
                   optical="display"
                   className="font-normal"
-                  style={{ color: ACCENT }}
                 >
                   PazySalvo.
                 </EditorialSerif>
               </h2>
             </div>
 
-            <p className="max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
+            <p className="editorial-lead">
               Verificación en cinco departamentos, cálculo automático de
               liquidación y generación de documentos en PDF y ZIP.
             </p>
@@ -119,7 +115,7 @@ export function LiquidacionPazYSalvoSection({
                       role="tab"
                       aria-selected={active}
                       onClick={() => setActiveSlideId(slide.id)}
-                      className={`relative cursor-pointer pb-1 text-xs font-semibold tracking-[0.08em] uppercase transition-colors ${
+                      className={`relative cursor-pointer pb-1 text-xs font-semibold transition-colors ${
                         active
                           ? "text-foreground"
                           : "text-muted-foreground hover:text-foreground"
@@ -160,28 +156,28 @@ export function LiquidacionPazYSalvoSection({
                 type="button"
                 onClick={() => onPreview(ape04)}
                 aria-label={`Abrir ${activeSlide.title} en APE 04.pdf`}
-                className="group block w-full cursor-pointer overflow-hidden rounded-xl border border-border bg-background p-4 text-left shadow-[var(--shadow-panel)] transition-all duration-300 hover:border-border-strong md:p-6"
+                className="group block w-full cursor-pointer overflow-hidden rounded-xl bg-background p-4 text-left shadow-[var(--shadow-panel)] transition-all duration-300 md:p-6"
               >
                 <img
                   key={activeSlide.id}
                   src={activeSlide.imageUrl}
                   alt={activeSlide.title}
                   className={`mx-auto w-full rounded-lg object-contain transition-transform duration-500 ease-out group-hover:scale-[1.01] ${
-                    activeSlide.aspectHint === "portrait"
+                    activeSlide.aspectHint ==="portrait"
                       ? "max-h-[40rem]"
                       : "max-h-[38rem]"
                   }`}
                 />
               </button>
 
-              <figcaption className="flex flex-col justify-between gap-2 text-xs text-muted-foreground sm:flex-row sm:items-baseline">
+              <figcaption className="flex flex-col justify-between gap-2 type-caption text-muted-foreground sm:flex-row sm:items-baseline">
                 <span>
                   <strong className="font-semibold text-foreground">
                     {activeSlide.title}
                   </strong>{" "}
                   — {activeSlide.caption}
                 </span>
-                <span className="shrink-0 font-mono">{activeSlide.figure}</span>
+                <span className="shrink-0">{activeSlide.figure}</span>
               </figcaption>
             </figure>
           </div>
@@ -194,13 +190,13 @@ export function LiquidacionPazYSalvoSection({
             {PAZYSALVO_META.clearanceUnits.map((u) => (
               <li key={u.step} className="space-y-1.5">
                 <span
-                  className="font-mono text-xs font-semibold"
+                  className="text-xs font-semibold"
                   style={{ color: ACCENT }}
                 >
                   {u.step}
                 </span>
-                <h3 className="text-sm font-bold text-foreground">{u.unit}</h3>
-                <p className="text-xs leading-relaxed text-muted-foreground">
+                <h3 className="type-subheading text-foreground">{u.unit}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   {u.verification}
                 </p>
               </li>
@@ -218,24 +214,20 @@ export function LiquidacionPazYSalvoSection({
         className="border-t border-border bg-background py-24 md:py-36"
       >
         <div className="editorial-container space-y-16">
-          <div data-ed-reveal className="max-w-2xl space-y-3">
-            <p className="font-mono text-xs tracking-[0.18em] text-muted-foreground uppercase">
-              02 · Validación del caso hipotético
-            </p>
+          <div data-ed-reveal className="space-y-5">
             <h2
               id="m4-case-heading"
-              className="text-[clamp(2.25rem,4.6vw,3.8rem)] leading-[1.04] font-bold tracking-[-0.03em] text-foreground"
+              className="type-display"
             >
               Un caso, cuatro{" "}
               <EditorialSerif
                 optical="display"
                 className="font-normal"
-                style={{ color: ACCENT }}
               >
                 escenarios.
               </EditorialSerif>
             </h2>
-            <p className="text-sm text-muted-foreground md:text-base">
+            <p className="editorial-aside serif-complete-italic">
               {APE04_HYPOTHETICAL_CASE.employer} ·{" "}
               {APE04_HYPOTHETICAL_CASE.worker}
             </p>
@@ -246,11 +238,11 @@ export function LiquidacionPazYSalvoSection({
             {/* Izquierda: Protagonista numérico + desglose en lista editorial */}
             <div data-ed-reveal className="space-y-8 lg:col-span-6">
               <div className="space-y-2 border-b border-border pb-6">
-                <span className="font-mono text-xs text-muted-foreground uppercase">
+                <span className="text-xs text-muted-foreground">
                   {APE04_HYPOTHETICAL_CASE.causeLabel}
                 </span>
                 <p
-                  className="font-mono text-4xl font-bold tracking-tight tabular-nums sm:text-5xl"
+                  className="text-4xl font-bold tracking-tight tabular-nums sm:text-5xl"
                   style={{ color: ACCENT }}
                 >
                   {APE04_HYPOTHETICAL_CASE.netAmount}
@@ -281,7 +273,7 @@ export function LiquidacionPazYSalvoSection({
                       </span>
                     </dt>
                     <dd
-                      className={`shrink-0 font-mono text-sm tabular-nums ${
+                      className={`shrink-0 text-sm tabular-nums ${
                         row.isDeduction
                           ? "text-muted-foreground"
                           : "font-semibold text-foreground"
@@ -301,7 +293,7 @@ export function LiquidacionPazYSalvoSection({
             >
               <div className="space-y-8">
                 <div className="space-y-1">
-                  <h3 className="text-base font-bold text-foreground">
+                  <h3 className="type-subheading text-foreground">
                     Impacto neto según causa de terminación
                   </h3>
                   <p className="text-xs text-muted-foreground">
@@ -324,7 +316,7 @@ export function LiquidacionPazYSalvoSection({
                           {sc.cause}
                         </span>
                         <span
-                          className="shrink-0 font-mono font-bold tabular-nums"
+                          className="shrink-0 font-bold tabular-nums"
                           style={{
                             color: sc.highlight ? ACCENT : "var(--foreground)",
                           }}

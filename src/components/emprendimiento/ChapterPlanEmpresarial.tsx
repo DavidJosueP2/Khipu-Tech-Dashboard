@@ -24,25 +24,21 @@ import {
 
 const FODA_STYLES: Record<
   FodaQuadrant["tone"],
-  { border: string; bg: string; heading: string }
+  { bg: string; heading: string }
 > = {
   emerald: {
-    border: "border-emerald-700/25",
     bg: "bg-emerald-600/[0.06]",
     heading: "text-emerald-800",
   },
   amber: {
-    border: "border-amber-700/25",
     bg: "bg-amber-600/[0.06]",
     heading: "text-amber-800",
   },
   sky: {
-    border: "border-sky-700/25",
     bg: "bg-sky-600/[0.06]",
     heading: "text-sky-800",
   },
   rose: {
-    border: "border-rose-700/25",
     bg: "bg-rose-600/[0.06]",
     heading: "text-rose-800",
   },
@@ -166,9 +162,8 @@ export function ChapterPlanEmpresarial() {
         <div className="space-y-16">
           <ChapterHeader
             headingId="plan-identidad-heading"
-            eyebrow="03 / 04 · MÓDULO 01 · IDENTIDAD Y DIRECCIÓN"
-            titleBold="Plan"
-            titleItalic="empresarial"
+            titleBold="Identidad"
+            titleItalic="estratégica"
             lead="El plan empresarial parte de quiénes somos. Definimos un nombre con raíz cultural, un símbolo geométrico, una misión y una visión a 2031."
             objective="Definir la identidad y la dirección del negocio: qué somos y hacia dónde vamos."
           />
@@ -186,24 +181,24 @@ export function ChapterPlanEmpresarial() {
             <div className="space-y-12 lg:col-span-7">
               <div
                 data-id-block
-                className="space-y-3 border-l-2 border-primary/70 pl-6 sm:pl-8"
+                className="space-y-4"
               >
-                <p className="font-mono text-xs font-semibold tracking-[0.2em] text-primary uppercase">
+                <h3 className="type-subheading">
                   Misión
-                </p>
-                <p className="serif-complete-italic text-xl leading-relaxed text-foreground/95 sm:text-2xl sm:leading-relaxed">
+                </h3>
+                <p className="editorial-aside serif-complete-italic">
                   {STRATEGIC_IDENTITY.mission}
                 </p>
               </div>
 
               <div
                 data-id-block
-                className="space-y-3 border-l-2 border-primary/45 pl-6 sm:pl-8"
+                className="space-y-4"
               >
-                <p className="font-mono text-xs font-semibold tracking-[0.2em] text-primary/90 uppercase">
+                <h3 className="type-subheading">
                   Visión 2031
-                </p>
-                <p className="serif-complete-italic text-xl leading-relaxed text-foreground/95 sm:text-2xl sm:leading-relaxed">
+                </h3>
+                <p className="editorial-aside serif-complete-italic">
                   {STRATEGIC_IDENTITY.vision}
                 </p>
               </div>
@@ -222,9 +217,7 @@ export function ChapterPlanEmpresarial() {
         <div className="space-y-12">
           <ChapterHeader
             headingId="plan-foda-heading"
-            eyebrow="03 / 04 · MÓDULO 01 · FODA Y ESTRATEGIA"
-            titleBold="Plan"
-            titleItalic="empresarial"
+            titleBold="Análisis FODA"
             lead="Del diagnóstico FODA nacen las decisiones concretas: potenciamos nuestra arquitectura técnica y compensamos la etapa inicial mediante pilotos."
             objective="Convertir el análisis interno y externo en decisiones estratégicas accionables."
           />
@@ -240,29 +233,22 @@ export function ChapterPlanEmpresarial() {
                 <div
                   key={q.category}
                   data-foda-box
-                  className={`space-y-4 rounded-xl border p-6 backdrop-blur-xs ${style.border} ${style.bg}`}
+                  className={`space-y-4 rounded-xl p-6 backdrop-blur-xs ${style.bg}`}
                 >
                   <div className="flex items-baseline gap-2.5">
-                    <h3 className={`text-lg font-bold ${style.heading}`}>
+                    <h3 className={`type-subheading ${style.heading}`}>
                       {q.category}
                     </h3>
-                    <span className="font-mono text-[0.65rem] tracking-[0.16em] text-muted-foreground uppercase">
+                    <span className="text-xs text-muted-foreground">
                       {q.scope}
                     </span>
                   </div>
 
-                  <div className="flex flex-wrap gap-2">
-                    {q.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-border/80 bg-background/55 px-3 py-1 text-xs font-medium text-foreground/92"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                  <p className="type-caption font-semibold text-foreground">
+                    {q.tags.join(" · ")}
+                  </p>
 
-                  <p className="text-xs leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {q.summary}
                   </p>
                 </div>
@@ -278,7 +264,7 @@ export function ChapterPlanEmpresarial() {
                 data-foda-strat
                 className="flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-4"
               >
-                <span className="inline-flex w-fit shrink-0 items-center gap-2 rounded-full border border-primary/35 bg-primary/14 px-3.5 py-1 font-mono text-[0.68rem] font-semibold tracking-wider text-primary uppercase">
+                <span className="inline-flex w-fit shrink-0 items-center gap-2 text-xs font-semibold text-primary">
                   <span>{strat.code}</span>
                   <span aria-hidden="true" className="opacity-50">
                     ·
@@ -310,9 +296,8 @@ export function ChapterPlanEmpresarial() {
         <div className="space-y-14">
           <ChapterHeader
             headingId="plan-mercado-heading"
-            eyebrow="03 / 04 · MÓDULO 01 · MERCADO"
-            titleBold="Plan"
-            titleItalic="empresarial"
+            titleBold="El mercado"
+            titleItalic="y la competencia"
             lead="El sondeo en Ambato confirma la necesidad: los comercios controlan caducidades de forma manual y buscan alertas preventivas a un precio accesible."
             objective="Conocer al cliente objetivo y a los competidores reales para definir nuestra diferenciación."
           />
@@ -336,7 +321,7 @@ export function ChapterPlanEmpresarial() {
                 >
                   {kpi.value}
                 </div>
-                <p className="text-xs leading-relaxed text-muted-foreground">
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   {kpi.label}
                 </p>
               </div>
@@ -351,15 +336,15 @@ export function ChapterPlanEmpresarial() {
             {/* KhipuTech Rotación destacado */}
             <div
               data-comp-panel
-              className="flex flex-col justify-between gap-6 rounded-2xl border border-primary/45 bg-primary/12 p-7 sm:p-9"
+              className="flex flex-col justify-between gap-6 rounded-2xl bg-primary/12 p-7 sm:p-9"
             >
               <div className="space-y-4">
-                <span className="inline-flex rounded-full bg-primary px-3 py-1 font-mono text-[0.65rem] font-bold tracking-[0.16em] text-primary-foreground uppercase">
+                <span className="inline-flex text-xs font-bold text-primary">
                   Nuestra diferencia
                 </span>
 
                 <div className="space-y-1">
-                  <h3 className="text-xl font-bold text-foreground">
+                  <h3 className="type-subheading text-foreground">
                     {COMPETITIVE_COMPARISON.featured.name}
                   </h3>
                   <div className="flex flex-wrap items-baseline gap-2.5 pt-2">
@@ -380,7 +365,7 @@ export function ChapterPlanEmpresarial() {
 
             {/* Separador VS */}
             <div className="flex items-center justify-center">
-              <span className="flex size-10 items-center justify-center rounded-full border border-border-strong bg-surface font-mono text-xs font-semibold text-muted-foreground">
+              <span className="serif-editorial-italic text-2xl text-muted-foreground">
                 vs
               </span>
             </div>
@@ -391,10 +376,10 @@ export function ChapterPlanEmpresarial() {
                 <div
                   key={comp.name}
                   data-comp-panel
-                  className="flex flex-1 flex-col justify-between gap-3 rounded-2xl border border-border/80 bg-surface/50 p-6"
+                  className="flex flex-1 flex-col justify-between gap-3 rounded-2xl bg-surface/50 p-6"
                 >
                   <div className="space-y-1">
-                    <h3 className="text-base font-bold text-foreground">
+                    <h3 className="type-subheading text-foreground">
                       {comp.name}
                     </h3>
                     <div className="flex flex-wrap items-baseline gap-2">
@@ -406,7 +391,7 @@ export function ChapterPlanEmpresarial() {
                       </span>
                     </div>
                   </div>
-                  <p className="text-xs leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {comp.offering} {comp.strength}
                   </p>
                 </div>
@@ -426,9 +411,8 @@ export function ChapterPlanEmpresarial() {
         <div className="space-y-16">
           <ChapterHeader
             headingId="plan-operacion-heading"
-            eyebrow="03 / 04 · MÓDULO 01 · OPERACIÓN"
-            titleBold="Plan"
-            titleItalic="empresarial"
+            titleBold="Operación"
+            titleItalic="del negocio"
             lead="Operar KhipuTech implica seguir un flujo claro y repetible desde la prospección en comercios de Ambato hasta el soporte continuo."
             objective="Concretar el proceso para entregar el servicio, los recursos requeridos y la estrategia de validación."
           />
@@ -438,19 +422,19 @@ export function ChapterPlanEmpresarial() {
             <div
               data-ops-connector
               aria-hidden="true"
-              className="absolute top-4 right-8 left-8 hidden h-px bg-primary/50 md:block"
+              className="absolute inset-x-0 top-0 hidden h-px bg-primary/35 md:block"
             />
 
-            <ol className="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-5">
+            <ol className="grid grid-cols-1 gap-8 md:grid-cols-5 md:gap-5 md:pt-4">
               {OPERATIONAL_PROCESS.map((item) => (
                 <li key={item.step} data-ops-step className="relative space-y-3">
-                  <div className="relative z-10 flex size-8 items-center justify-center rounded-full bg-primary font-mono text-xs font-bold text-primary-foreground shadow-[0_0_22px_var(--primary-soft)]">
+                  <div className="type-editorial-numeral flex size-8 items-center justify-center text-2xl text-module-01">
                     {item.step}
                   </div>
-                  <h3 className="text-base font-bold text-foreground">
+                  <h3 className="type-subheading text-foreground">
                     {item.name}
                   </h3>
-                  <p className="text-xs leading-relaxed text-muted-foreground">
+                  <p className="text-sm leading-relaxed text-muted-foreground">
                     {item.activity}
                   </p>
                 </li>
@@ -469,10 +453,10 @@ export function ChapterPlanEmpresarial() {
                   data-ops-pillar-rule
                   className="h-px w-full bg-primary/45"
                 />
-                <h3 className="text-sm font-bold text-foreground">
+                <h3 className="type-subheading text-foreground">
                   {pillar.label}
                 </h3>
-                <p className="text-xs leading-relaxed text-muted-foreground">
+                <p className="text-sm leading-relaxed text-muted-foreground">
                   {pillar.value}
                 </p>
               </div>
