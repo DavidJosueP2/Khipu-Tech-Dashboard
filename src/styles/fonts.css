@@ -1,0 +1,152 @@
+/* ============================================================================
+ * Tipografías locales del proyecto — Sistema Editorial Atlas Académico
+ * ============================================================================
+ * 1. Plus Jakarta Sans (Tokotype, SIL OFL)
+ *    - Sans-serif geométrica contemporánea con cobertura 100 % del español.
+ *    - Fuentes variables WOFF2 reales: eje wght 200..800 (normal e italic).
+ *    - Uso: navegación, párrafos, contenido, etiquetas, controles y fragmentos
+ *      de títulos en negrita (SemiBold / Bold).
+ *
+ * 2. Apparel y Apparel Display (Latinotype, FONTSPRING DEMO)
+ *    - Serif editorial de alto contraste declarada EXCLUSIVAMENTE en ITALIC.
+ *      (Regla obligatoria: la serif nunca se utiliza en estilo upright/normal.)
+ *    - Pesos itálicos reales disponibles: 100 (Thin), 300 (Light), 400 (Regular),
+ *      700 (Bold) y 900 (Black).
+ *    - LIMITACIÓN AUDITADA (FONTSPRING DEMO):
+ *      Al inspeccionar la tabla CFF/cmap binaria de los archivos DEMO locales:
+ *        a) Faltan los diacríticos españoles (áéíóúÁÉÍÓÚñÑüÜ¿¡–—).
+ *        b) El dígito "4" (U+0034) y varios símbolos (!"#$%&'()*+-/<=>@[\]^_`{|}~)
+ *           fueron sustituidos por Fontspring por un sello ornamental "DEMO".
+ *      SOLUCIÓN APLICADA:
+ *        1) Se restringe unicode-range estrictamente a letras ASCII limpias y
+ *           puntuación verificada sin marca de agua: espacio, coma, punto, :, ;,
+ *           ?, A–Z y a–z.
+ *        2) Los numerales editoriales (01–04, 22, P1–P2) y cualquier fragmento
+ *           con tildes, ñ o símbolos usan de forma íntegra --font-role-serif-complete
+ *           (vía .type-editorial-numeral y <EditorialSerif />), garantizando cero
+ *           sellos DEMO y cero mezcla de glifos dentro de una misma palabra.
+ * ========================================================================== */
+
+/* --- Plus Jakarta Sans (Variable WOFF2: 200..800) ------------------------- */
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-VariableFont_wght.woff2")
+    format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url("../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-Italic-VariableFont_wght.woff2")
+    format("woff2");
+  font-weight: 200 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Apparel (EXCLUSIVAMENTE ITALIC — solo glifos limpios verificados) ---- */
+
+@font-face {
+  font-family: "Apparel";
+  src: url("../assets/fonts/apparel-font-family/Fontspring-DEMO-apparel-thinit.otf")
+    format("opentype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0020, U+002C, U+002E, U+003A-003B, U+003F, U+0041-005A, U+0061-007A;
+}
+
+@font-face {
+  font-family: "Apparel";
+  src: url("../assets/fonts/apparel-font-family/Fontspring-DEMO-apparel-lightit.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0020, U+002C, U+002E, U+003A-003B, U+003F, U+0041-005A, U+0061-007A;
+}
+
+@font-face {
+  font-family: "Apparel";
+  src: url("../assets/fonts/apparel-font-family/Fontspring-DEMO-apparel-regularit.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0020, U+002C, U+002E, U+003A-003B, U+003F, U+0041-005A, U+0061-007A;
+}
+
+@font-face {
+  font-family: "Apparel";
+  src: url("../assets/fonts/apparel-font-family/Fontspring-DEMO-apparel-boldit.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0020, U+002C, U+002E, U+003A-003B, U+003F, U+0041-005A, U+0061-007A;
+}
+
+@font-face {
+  font-family: "Apparel";
+  src: url("../assets/fonts/apparel-font-family/Fontspring-DEMO-apparel-blackit.otf")
+    format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0020, U+002C, U+002E, U+003A-003B, U+003F, U+0041-005A, U+0061-007A;
+}
+
+/* --- Apparel Display (EXCLUSIVAMENTE ITALIC — óptica de grandes titulares) - */
+
+@font-face {
+  font-family: "Apparel Display";
+  src: url("../assets/fonts/apparel-font-family/Fontspring-DEMO-appareldisplay-thinit.otf")
+    format("opentype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0020, U+002C, U+002E, U+003A-003B, U+003F, U+0041-005A, U+0061-007A;
+}
+
+@font-face {
+  font-family: "Apparel Display";
+  src: url("../assets/fonts/apparel-font-family/Fontspring-DEMO-appareldisplay-lightit.otf")
+    format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0020, U+002C, U+002E, U+003A-003B, U+003F, U+0041-005A, U+0061-007A;
+}
+
+@font-face {
+  font-family: "Apparel Display";
+  src: url("../assets/fonts/apparel-font-family/Fontspring-DEMO-appareldisplay-regularit.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0020, U+002C, U+002E, U+003A-003B, U+003F, U+0041-005A, U+0061-007A;
+}
+
+@font-face {
+  font-family: "Apparel Display";
+  src: url("../assets/fonts/apparel-font-family/Fontspring-DEMO-appareldisplay-boldit.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0020, U+002C, U+002E, U+003A-003B, U+003F, U+0041-005A, U+0061-007A;
+}
+
+@font-face {
+  font-family: "Apparel Display";
+  src: url("../assets/fonts/apparel-font-family/Fontspring-DEMO-appareldisplay-blackit.otf")
+    format("opentype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+  unicode-range: U+0020, U+002C, U+002E, U+003A-003B, U+003F, U+0041-005A, U+0061-007A;
+}

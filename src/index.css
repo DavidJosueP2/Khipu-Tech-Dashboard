@@ -1,0 +1,249 @@
+@import "./styles/fonts.css";
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "./styles/tokens.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Familias tipográficas expuestas a Tailwind v4 */
+  --font-sans: var(--font-role-body);
+  --font-heading: var(--font-role-heading);
+  --font-serif: var(--font-role-editorial);
+  --font-display: var(--font-role-display);
+  --font-serif-complete: var(--font-role-serif-complete);
+  --font-mono: var(--font-role-mono);
+
+  /* Colores semánticos del sistema */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-soft: var(--primary-soft);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-warm: var(--accent-warm);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Matices de los cuatro módulos */
+  --color-module-01: var(--module-01);
+  --color-module-02: var(--module-02);
+  --color-module-03: var(--module-03);
+  --color-module-04: var(--module-04);
+
+  /* Estados documentales */
+  --color-status-verified: var(--status-verified);
+  --color-status-verified-soft: var(--status-verified-soft);
+  --color-status-review: var(--status-review);
+  --color-status-review-soft: var(--status-review-soft);
+  --color-status-ape: var(--status-ape);
+  --color-status-ape-soft: var(--status-ape-soft);
+
+  /* Gráficas y sidebar */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Radios sobrios y coherentes */
+  --radius-sm: calc(var(--radius) * 0.67);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) * 1.33);
+  --radius-xl: calc(var(--radius) * 1.67);
+  --radius-2xl: calc(var(--radius) * 2.17);
+  --radius-3xl: calc(var(--radius) * 2.67);
+  --radius-4xl: calc(var(--radius) * 3.33);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    font-family: var(--font-role-body);
+    font-size: 16px;
+    color-scheme: dark;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-synthesis: none;
+    scroll-behavior: smooth;
+  }
+
+  html[data-theme="paper"] {
+    color-scheme: light;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100svh;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: var(--type-body-size);
+    line-height: var(--type-body-leading);
+    font-weight: var(--weight-regular);
+    overflow-x: clip;
+    transition:
+      background-color 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      color 0.35s ease;
+  }
+
+  #root {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-role-heading);
+    color: var(--foreground);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  code,
+  kbd,
+  samp,
+  pre {
+    font-family: var(--font-role-mono);
+  }
+
+  ::selection {
+    background-color: var(--primary-soft);
+    color: var(--primary);
+  }
+}
+
+/* ============================================================================
+ * Utilidades editoriales, tipográficas y de composición del Atlas
+ * ========================================================================== */
+
+@layer components {
+  .type-hero {
+    font-family: var(--font-role-heading);
+    font-size: var(--type-hero-size);
+    line-height: var(--type-hero-leading);
+    letter-spacing: var(--type-hero-tracking);
+    font-weight: var(--weight-bold);
+  }
+
+  .type-display {
+    font-family: var(--font-role-heading);
+    font-size: var(--type-display-size);
+    line-height: var(--type-display-leading);
+    letter-spacing: var(--type-display-tracking);
+    font-weight: var(--weight-bold);
+  }
+
+  /* Regla obligatoria: Apparel / Apparel Display EXCLUSIVAMENTE en italic */
+  .serif-display-italic {
+    font-family: var(--font-role-display);
+    font-style: italic;
+    font-weight: var(--weight-regular);
+    letter-spacing: -0.015em;
+  }
+
+  .serif-editorial-italic {
+    font-family: var(--font-role-editorial);
+    font-style: italic;
+    font-weight: var(--weight-regular);
+    letter-spacing: -0.01em;
+  }
+
+  /* Fallback uniforme para fragmentos en serif italic con tildes o ñ */
+  .serif-complete-italic {
+    font-family: var(--font-role-serif-complete);
+    font-style: italic;
+    font-weight: var(--weight-regular);
+    letter-spacing: -0.012em;
+  }
+
+  /* Numerales editoriales uniformes en serif italic con cobertura numérica limpia
+   * (evita el glifo watermark DEMO que Fontspring aplica al dígito "4") */
+  .type-editorial-numeral {
+    font-family: var(--font-role-serif-complete);
+    font-style: italic;
+    font-weight: var(--weight-regular);
+    line-height: 0.92;
+    letter-spacing: -0.025em;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+
+  .type-overline {
+    font-family: var(--font-role-body);
+    font-size: var(--type-overline-size);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--type-overline-tracking);
+    text-transform: uppercase;
+    color: var(--muted-foreground);
+  }
+
+  .type-caption {
+    font-size: var(--type-caption-size);
+    line-height: var(--type-caption-leading);
+    color: var(--muted-foreground);
+  }
+
+  .editorial-container {
+    width: 100%;
+    max-width: var(--content-max-width);
+    margin-inline: auto;
+    padding-inline: var(--space-page-x);
+  }
+
+  .editorial-rule {
+    height: 1px;
+    width: 100%;
+    background-color: var(--border);
+  }
+}
+
+/* Respeto estricto de prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
