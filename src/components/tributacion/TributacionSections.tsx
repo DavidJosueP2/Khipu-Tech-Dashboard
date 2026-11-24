@@ -23,6 +23,7 @@ import {
 } from "@/data/tributacion";
 import { EditorialSerif } from "@/components/typography/EditorialSerif";
 import { ChapterHeader } from "@/components/emprendimiento/ChapterHeader";
+import { TributacionFichaFiscal } from "@/components/tributacion/TributacionFichaFiscal";
 import {
   animateDocumentListStagger,
   animateEditorialReveal,
@@ -49,6 +50,9 @@ interface TributacionSectionsProps {
 export function TributacionSections({ onPreview }: TributacionSectionsProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const ape02 = getTributacionDoc("ape-02");
+  const invoice = getTributacionDoc("tarea-07");
+  const indumetal = getTributacionDoc("tarea-08");
+  const ivaForm = getTributacionDoc("tarea-09");
 
   useGSAP(
     () =>
@@ -126,6 +130,8 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
             lead="Formalizar la empresa tecnológica comienza definiendo sus actividades CIIU, contrastando el catastro público y emitiendo comprobantes en el Facturador SRI."
             objective="Identificar las actividades económicas del emprendimiento y practicar la emisión electrónica ante el SRI."
           />
+
+          <TributacionFichaFiscal />
 
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
             {/* Izquierda: Códigos CIIU + Catastro */}
@@ -243,6 +249,13 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                   {FACTURA_SRI_VISUAL.total}
                 </span>
               </div>
+              <button
+                type="button"
+                onClick={() => onPreview(invoice)}
+                className="editorial-action cursor-pointer"
+              >
+                Ver comprobante del Facturador SRI
+              </button>
             </div>
           </div>
         </div>
@@ -261,7 +274,7 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
           <ChapterHeader
             headingId="t2-s2-heading"
             titleBold="Documentación e IVA"
-            lead="A través del caso práctico INDUMETAL S.A. se trazaron seis comprobantes comerciales para consolidar el IVA del período y simular el Formulario 2011."
+            lead="La práctica de INDUMETAL S.A. relaciona seis comprobantes con la liquidación del IVA. El expediente también contiene una práctica del Formulario 2011 en el portal del SRI."
             objective="Reconocer qué documentos modifican la liquidación del IVA y visualizar el crédito tributario obtenido."
           />
 
@@ -313,6 +326,60 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className="space-y-6 border-t border-border pt-8">
+            <h3 className="type-feature">
+              Del comprobante <EditorialSerif className="text-module-02">al cálculo.</EditorialSerif>
+            </h3>
+            <dl className="grid gap-x-12 gap-y-6 md:grid-cols-2">
+              <div className="space-y-2">
+                <dt className="type-subheading">IVA de compras</dt>
+                <dd className="max-w-[60ch] text-muted-foreground">
+                  La factura de compra registra una base de{" "}
+                  {INDUMETAL_IVA_VISUAL.purchasesBase}. Al aplicar la tarifa
+                  del {FACTURA_SRI_VISUAL.ivaRate} usada en el ejercicio se
+                  obtiene <strong>USD {INDUMETAL_IVA_VISUAL.purchasesIvaFormatted}</strong>.
+                </dd>
+              </div>
+              <div className="space-y-2">
+                <dt className="type-subheading">IVA de ventas netas</dt>
+                <dd className="max-w-[60ch] text-muted-foreground">
+                  A la venta de USD 720,00 se le restan USD 180,00 de la nota
+                  de crédito y se le suman USD 30,00 de la nota de débito.
+                  La base queda en {INDUMETAL_IVA_VISUAL.netSalesBase}. El IVA
+                  pasa de USD 108,00 a{" "}
+                  <strong>USD {INDUMETAL_IVA_VISUAL.netSalesIvaFormatted}</strong>
+                  {" "}al restar USD 27,00 y sumar USD 4,50.
+                </dd>
+              </div>
+              <div className="space-y-2">
+                <dt className="type-subheading">Guía de remisión y retención</dt>
+                <dd className="max-w-[60ch] text-muted-foreground">
+                  La guía respalda el traslado de bienes. En la práctica se
+                  registra por separado una retención didáctica de USD 21,00,
+                  equivalente al 1 % de la base de compra.
+                </dd>
+              </div>
+              <div className="space-y-2">
+                <dt className="type-subheading">Resultado de la liquidación</dt>
+                <dd className="max-w-[60ch] text-muted-foreground">
+                  El crédito a favor se obtiene al restar USD{" "}
+                  {INDUMETAL_IVA_VISUAL.netSalesIvaFormatted} de IVA en ventas
+                  a USD {INDUMETAL_IVA_VISUAL.purchasesIvaFormatted} de IVA en
+                  compras. La diferencia es{" "}
+                  <strong>{INDUMETAL_IVA_VISUAL.taxCreditFormatted}</strong>.
+                </dd>
+              </div>
+            </dl>
+            <a
+              className="editorial-action"
+              href={indumetal.url + "#page=8"}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Ver la matriz y los documentos de la Tarea 08
+            </a>
           </div>
 
           {/* Barras visuales comparativas: IVA Compras vs IVA Ventas */}
@@ -381,15 +448,8 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
               <p className="text-lg font-bold text-foreground sm:text-xl">
                 Crédito tributario a favor del contribuyente
               </p>
-              <p className="text-xs text-muted-foreground">
-                {INDUMETAL_IVA_VISUAL.formNote} · Captura ampliada de 5 págs. en{" "}
-                <button
-                  type="button"
-                  onClick={() => onPreview(ape02)}
-                  className="cursor-pointer font-semibold text-foreground underline underline-offset-4 hover:text-primary"
-                >
-                  Guia Ape 02.pdf
-                </button>
+              <p className="text-sm text-muted-foreground">
+                Resultado del caso INDUMETAL S.A.
               </p>
             </div>
             <div
@@ -397,6 +457,27 @@ export function TributacionSections({ onPreview }: TributacionSectionsProps) {
               style={{ color: MODULE_ACCENT }}
             >
               {INDUMETAL_IVA_VISUAL.taxCreditFormatted}
+            </div>
+          </div>
+          <div className="space-y-4">
+            <h3 className="type-subheading">Formulario 2011 en el portal del SRI</h3>
+            <p className="max-w-[68ch] text-muted-foreground">
+              La Tarea 09 muestra una declaración sustitutiva de IVA del
+              período agosto de 2026. La captura usa los importes propios de
+              esa práctica del portal. La matriz de la Tarea 08 conserva el
+              cálculo de INDUMETAL.
+            </p>
+            <div className="flex flex-wrap gap-x-6 gap-y-3">
+              <button
+                type="button"
+                onClick={() => onPreview(ivaForm)}
+                className="editorial-action cursor-pointer"
+              >
+                Ver captura de la Tarea 09
+              </button>
+              <a className="editorial-action" href={ape02.url + "#page=31"} target="_blank" rel="noreferrer">
+                Ver formulario completo en el APE 02
+              </a>
             </div>
           </div>
         </div>

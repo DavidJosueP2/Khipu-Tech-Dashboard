@@ -247,6 +247,14 @@ export function getTributacionDoc(id: string): TributacionDocument {
   return found;
 }
 
+/** Datos del solicitante en la simulación SENADI (Tarea 10, pág. 2). */
+export const KHIPUTECH_TAX_PROFILE = {
+  legalName: "KhipuTech Cía. Ltda.",
+  simulatedRuc: "1850191253001",
+  companyType: "Compañía de responsabilidad limitada",
+  address: "Av. Los Chasquis y Río Guayllabamba, Huachi Chico, Ambato, Tungurahua.",
+} as const;
+
 /** Escena 01 / 04 — RUC, CIIU y Facturador SRI */
 export const CIIU_ACTIVITIES: readonly CiiuActivity[] = [
   {
@@ -297,12 +305,11 @@ export const INDUMETAL_IVA_VISUAL = {
   netSalesIva: 85.5,
   netSalesIvaFormatted: "85,50",
   taxCreditFormatted: "USD 229,50",
-  formNote: "Formulario 2011 · SRI Servicios en Línea · Período agosto 2026",
 } as const;
 
 /** Escena 03 / 04 — SENADI e Importaciones Ecuador 2024 */
 export const SENADI_VISUAL = {
-  applicant: "KhipuTech Cía. Ltda.",
+  applicant: KHIPUTECH_TAX_PROFILE.legalName,
   sign: "KHIPUTECH </>",
   niceClass: "Clase 42",
   niceSubtitle: "Clasificación Internacional de Niza",

@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import {
   getTributacionDoc,
+  KHIPUTECH_TAX_PROFILE,
   type TributacionDocument,
 } from "@/data/tributacion";
 import { ModuleCover } from "@/components/layout/ModuleCover";
@@ -73,11 +74,17 @@ export function TributacionPage() {
             </figure>
             <dl className="flex flex-wrap gap-x-8 gap-y-4 border-t border-border pt-5">
               <div>
+                <dt className="type-caption text-muted-foreground">RUC simulado</dt>
+                <dd className="font-bold text-module-02 tabular-nums">
+                  {KHIPUTECH_TAX_PROFILE.simulatedRuc}
+                </dd>
+              </div>
+              <div>
                 <dt className="type-caption text-muted-foreground">CIIU principal</dt>
                 <dd className="font-bold">J62010101</dd>
               </div>
               <div>
-                <dt className="type-caption text-muted-foreground">Crédito IVA</dt>
+                <dt className="type-caption text-muted-foreground">Crédito IVA de INDUMETAL</dt>
                 <dd className="font-bold text-module-02">USD 229,50</dd>
               </div>
               <div>
