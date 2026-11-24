@@ -280,6 +280,8 @@ export const APE04_HYPOTHETICAL_CASE = {
   worker: "Diego Fernando Sánchez Mora · Analista de Sistemas",
   metaLine: "Ambato (Sierra) · 4 años, 9 meses · Sueldo USD 1.050,00 · 26,25 días de vacaciones",
   sbuExerciseNote: "SBU del ejercicio académico 2026: USD 482,00 (Acuerdo MDT-2025-195).",
+  totalIncome: "USD 4.298,63",
+  totalDeductions: "USD 299,23",
   netAmount: "USD 3.999,40",
   causeLabel: "Desahucio presentado por el trabajador",
   breakdown: [

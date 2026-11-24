@@ -10,6 +10,7 @@ import {
   type NominaDocument,
 } from "@/data/nomina";
 import { ChapterHeader } from "@/components/emprendimiento/ChapterHeader";
+import { NominaLecturaRol } from "@/components/nomina/NominaLecturaRol";
 import {
   animateDocumentListStagger,
   animateEditorialReveal,
@@ -95,6 +96,8 @@ export function NominaRemuneracionesSection({
           lead="Liquidación mensual automatizada de los doce registros del ejercicio académico de TechInstall Solutions: sueldos base, horas con recargo, aportes al IESS, retención IR, beneficios sociales y costo patronal."
           objective="Mostrar con transparencia el doble balance financiero (trabajador y empleador) y su conciliación exacta ante el IESS."
         />
+
+        <NominaLecturaRol reportUrl={ape03.url} />
 
         {/* Parámetros declarados del ejercicio académico (SBU $482 identificado como dato del ejercicio) */}
         <div

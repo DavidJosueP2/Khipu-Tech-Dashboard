@@ -9,6 +9,7 @@ import {
   type LiquidacionDocument,
 } from "@/data/liquidacion";
 import { ModuleCover } from "@/components/layout/ModuleCover";
+import { LiquidacionCausalesSection } from "@/components/liquidacion/LiquidacionCausalesSection";
 import { LiquidacionPazYSalvoSection } from "@/components/liquidacion/LiquidacionPazYSalvoSection";
 import { LiquidacionDoceCasosSection } from "@/components/liquidacion/LiquidacionDoceCasosSection";
 import { LiquidacionEvidenciasExpediente } from "@/components/liquidacion/LiquidacionEvidenciasExpediente";
@@ -26,7 +27,7 @@ export function LiquidacionPage() {
         module="04"
         title="Liquidación"
         emphasis="laboral."
-        target="escena-pazysalvo"
+        target="escena-causales"
         description={
           <>
             <strong className="text-foreground">Automatización del paz y salvo</strong>
@@ -34,6 +35,8 @@ export function LiquidacionPage() {
           </>
         }
       />
+
+      <LiquidacionCausalesSection />
 
       <section className="editorial-container atlas-evidence" aria-label="Evidencias del módulo">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12">

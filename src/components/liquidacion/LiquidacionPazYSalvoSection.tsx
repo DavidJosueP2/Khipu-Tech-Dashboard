@@ -202,6 +202,33 @@ export function LiquidacionPazYSalvoSection({
               </li>
             ))}
           </ol>
+
+          <div data-ed-reveal className="grid gap-x-12 gap-y-5 border-t border-border pt-8 lg:grid-cols-[minmax(15rem,1fr)_2fr]">
+            <h3 className="type-feature">
+              Qué queda <EditorialSerif>en el expediente.</EditorialSerif>
+            </h3>
+            <div className="space-y-4">
+              <p className="max-w-[65ch] text-muted-foreground">
+                Cada unidad deja el nombre del responsable, la fecha, las
+                observaciones y el estado de la revisión. Con las cinco
+                aprobaciones, la herramienta permite emitir el certificado de
+                paz y salvo. La liquidación se genera en otro PDF, con el
+                desglose y el anexo de vacaciones. Las evidencias se agrupan por
+                unidad y el expediente se puede exportar en ZIP.
+              </p>
+              <div className="flex flex-wrap gap-x-6 gap-y-3">
+                <a className="editorial-action" href={ape04.url + "#page=8"} target="_blank" rel="noreferrer">
+                  Ver estructura del expediente
+                </a>
+                <a className="editorial-action" href={ape04.url + "#page=13"} target="_blank" rel="noreferrer">
+                  Ver certificado de paz y salvo
+                </a>
+                <a className="editorial-action" href={ape04.url + "#page=15"} target="_blank" rel="noreferrer">
+                  Ver liquidación de haberes
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -284,6 +311,18 @@ export function LiquidacionPazYSalvoSection({
                   </div>
                 ))}
               </dl>
+
+              <div className="space-y-3 border-t border-border pt-6">
+                <h3 className="type-subheading">Cómo se obtiene el neto</h3>
+                <p className="max-w-[60ch] text-muted-foreground">
+                  En este caso del APE 04, la remuneración pendiente, los
+                  décimos, las vacaciones no gozadas y la bonificación suman{" "}
+                  <strong>{APE04_HYPOTHETICAL_CASE.totalIncome}</strong>. Se
+                  restan el aporte personal al IESS y el anticipo, que juntos
+                  representan <strong>{APE04_HYPOTHETICAL_CASE.totalDeductions}</strong>.
+                  El resultado es <strong>{APE04_HYPOTHETICAL_CASE.netAmount}</strong>.
+                </p>
+              </div>
             </div>
 
             {/* Derecha: Contraste visual limpio de las 4 causales */}
