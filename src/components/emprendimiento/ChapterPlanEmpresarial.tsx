@@ -329,6 +329,16 @@ export function ChapterPlanEmpresarial() {
                 </p>
               </div>
             ))}
+            <a
+              href="https://docs.google.com/forms/d/1F7ilvX7YeQmMAO_b3vrbbSGEStORy3PUrlgZpG0QLNY/edit#responses"
+              target="_blank"
+              rel="noreferrer"
+              className="editorial-action col-span-full"
+            >
+              Ver resultados de la encuesta en Google Forms
+              <ArrowUpRight aria-hidden="true" className="size-3.5 shrink-0" />
+              <span className="sr-only"> (abre en una pestaña nueva)</span>
+            </a>
           </div>
 
           {/* Comparativa competitiva: Nuestra diferencia VS Contífico y Dora.ec */}
