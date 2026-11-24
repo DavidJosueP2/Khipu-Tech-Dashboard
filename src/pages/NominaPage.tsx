@@ -10,13 +10,13 @@ import { NominaAppJuridicoExpediente } from "@/components/nomina/NominaAppJuridi
 import { PdfViewerSheet } from "@/components/documents/PdfViewerSheet";
 import { gsap, useGSAP, withResponsiveMotion } from "@/lib/motion";
 
+import imgStudioWorkspace from "@/assets/heroes/editorial-m3-main.jpg";
 import imgNominaWeb from "@/assets/heroes/m3-nomina-web.png";
-import imgNominaMovil from "@/assets/heroes/m3-nomina-movil.png";
 
 /**
  * Módulo 03 — Remuneraciones y nómina (Unidad III).
- * Portada editorial panorámica con dúo asimétrico web + móvil reales del
- * sistema de roles de pago documentado en APE 03 (TechInstall Solutions).
+ * Portada panorámica editorial sin marcos blancos: cabecera dividida arriba y
+ * contrapunto limpio entre el espacio organizativo y la app real de roles de pago.
  */
 export function NominaPage() {
   const heroRef = useRef<HTMLElement>(null);
@@ -34,7 +34,7 @@ export function NominaPage() {
             y: 0,
             opacity: 1,
             duration: 0.76,
-            stagger: 0.09,
+            stagger: 0.08,
             ease: "power3.out",
             clearProps: "transform,opacity",
           }
@@ -50,19 +50,19 @@ export function NominaPage() {
 
   return (
     <div className="editorial-container flex flex-1 flex-col">
-      {/* PORTADA EDITORIAL PANORÁMICA DEL MÓDULO 03 — DÚO WEB + MÓVIL */}
+      {/* PORTADA EDITORIAL PANORÁMICA DEL MÓDULO 03 — SIN CAJAS BLANCAS */}
       <section
         ref={heroRef}
         aria-label="Portada del Módulo 03 Remuneraciones y nómina"
-        className="py-14 md:py-22"
+        className="flex min-h-[calc(100svh-4rem)] items-center py-8 md:py-10"
       >
-        <div className="space-y-12">
-          {/* Fila superior dividida: título monumental a la izquierda, bajada + CTA a la derecha */}
+        <div className="w-full space-y-7">
+          {/* Cabecera dividida */}
           <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
-            <div className="space-y-4 lg:col-span-7">
+            <div className="min-w-0 space-y-3 lg:col-span-7">
               <div
                 data-m3-hero
-                className="flex items-center gap-3 font-mono text-[0.72rem] tracking-[0.18em] uppercase"
+                className="flex items-center gap-3 font-mono text-[0.7rem] tracking-[0.2em] uppercase"
                 style={{ color: "var(--module-03)" }}
               >
                 <span
@@ -75,7 +75,7 @@ export function NominaPage() {
 
               <h1
                 data-m3-hero
-                className="text-[clamp(2.9rem,6.4vw,5.4rem)] leading-[0.95] tracking-[-0.035em] text-foreground"
+                className="text-[clamp(2.5rem,4.7vw,4.5rem)] leading-[0.98] tracking-[-0.032em] text-foreground"
               >
                 <span className="font-bold">Remuneraciones </span>
                 <EditorialSerif
@@ -90,9 +90,9 @@ export function NominaPage() {
 
             <div
               data-m3-hero
-              className="flex flex-col items-start space-y-5 lg:col-span-5 lg:items-end lg:text-right"
+              className="flex flex-col items-start space-y-4 lg:col-span-5 lg:items-end lg:text-right"
             >
-              <p className="max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">
+              <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
                 Contratación laboral, organigrama funcional, planilla consolidada
                 con conciliación IESS y aplicación web/móvil.
               </p>
@@ -108,41 +108,42 @@ export function NominaPage() {
             </div>
           </div>
 
-          {/* Dúo visual asimétrico: pantalla web panorámica + vista móvil vertical */}
-          <div className="grid grid-cols-1 items-end gap-6 lg:grid-cols-12">
-            <figure data-m3-hero className="space-y-2.5 lg:col-span-8">
+          {/* Contrapunto visual limpio a sangre completa (CERO marco padding) */}
+          <div className="grid grid-cols-1 items-end gap-8 lg:grid-cols-12">
+            <figure data-m3-hero className="space-y-2.5 lg:col-span-7">
               <button
                 type="button"
                 onClick={() => setSelectedDoc(ape03)}
-                aria-label="Abrir capturas de la aplicación de nómina en APE 03"
-                className="group block w-full cursor-pointer overflow-hidden rounded-xl border border-border bg-surface shadow-[var(--shadow-panel)] transition-colors hover:border-border-strong"
+                aria-label="Abrir informe APE 03"
+                className="group block w-full cursor-pointer overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <img
-                  src={imgNominaWeb}
-                  alt="Panel principal web de la aplicación de roles de pago (APE 03)"
-                  className="aspect-[16/10] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+                  src={imgStudioWorkspace}
+                  alt="Organización del talento humano y estructura corporativa — TechInstall Solutions"
+                  className="max-h-[22.5rem] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 />
               </button>
-              <figcaption className="font-mono text-[0.68rem] tracking-[0.12em] text-muted-foreground uppercase">
-                Aplicación web · Panel mensual de nómina (Figura 8 · APE 03)
+              <figcaption className="font-mono text-[0.66rem] tracking-[0.16em] text-muted-foreground uppercase">
+                Estructura organizacional · 12 registros · SBU ejercicio $482
               </figcaption>
             </figure>
 
-            <figure data-m3-hero className="space-y-2.5 lg:col-span-4">
+            <figure data-m3-hero className="space-y-2.5 lg:col-span-5">
               <button
                 type="button"
                 onClick={() => setSelectedDoc(ape03)}
-                aria-label="Abrir versión móvil en APE 03"
-                className="group block w-full cursor-pointer overflow-hidden rounded-xl border border-border bg-surface p-2 shadow-[var(--shadow-panel)] transition-colors hover:border-border-strong"
+                aria-label="Ver sistema web de roles de pago en APE 03"
+                className="group block w-full cursor-pointer overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-ring"
               >
                 <img
-                  src={imgNominaMovil}
-                  alt="Versión móvil de la aplicación de roles de pago (APE 03)"
-                  className="aspect-[3/4] max-h-[26rem] w-full rounded-md object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+                  src={imgNominaWeb}
+                  alt="Sistema web de roles de pago desarrollado en APE 03"
+                  className="max-h-[22.5rem] w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                 />
               </button>
-              <figcaption className="font-mono text-[0.68rem] tracking-[0.12em] text-muted-foreground uppercase">
-                Versión móvil · 12 registros · IESS
+              <figcaption className="flex items-center justify-between font-mono text-[0.66rem] tracking-[0.14em] text-muted-foreground uppercase">
+                <span>Rol de pagos web · APE 03</span>
+                <span>IESS $3.588,64</span>
               </figcaption>
             </figure>
           </div>

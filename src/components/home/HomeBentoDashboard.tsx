@@ -2,22 +2,22 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 
-import { INSTITUTION, SEMESTER_PARTIALS } from "@/data/platform";
+import { BRAND, INSTITUTION, SEMESTER_PARTIALS } from "@/data/platform";
 import { EditorialSerif } from "@/components/typography/EditorialSerif";
 import { gsap, useGSAP, withResponsiveMotion } from "@/lib/motion";
 
-import imgKhipuBrand from "@/assets/heroes/m1-khiputech-logo.png";
-import imgSurveyMarket from "@/assets/heroes/m1-encuesta-mercado.png";
+import imgM1Shelves from "@/assets/heroes/editorial-m1-main.jpg";
+import imgM1KhipuKnot from "@/assets/heroes/editorial-m1-detail.jpg";
 import imgImportaciones from "@/assets/heroes/m2-infografia-importaciones.png";
+import imgM3Workspace from "@/assets/heroes/editorial-m3-main.jpg";
 import imgNominaWeb from "@/assets/heroes/m3-nomina-web.png";
-import imgNominaMovil from "@/assets/heroes/m3-nomina-movil.png";
 import imgPazySalvo from "@/assets/thumbnails/unidad-4/pazysalvo-hero-dashboard.png";
 import imgCertificadoPys from "@/assets/thumbnails/unidad-4/ape04-certificado-pys.png";
 
 const LIVE_TOOLS = [
   {
     label: "Rol de Pagos Ecuador",
-    sub: "APE 03 · App de nómina web y móvil",
+    sub: "APE 03 · App web y móvil de nómina",
     url: "https://rol-pagos-ecuador.vercel.app/sistema/inicio",
   },
   {
@@ -27,15 +27,14 @@ const LIVE_TOOLS = [
   },
   {
     label: "Repositorio PazySalvo",
-    sub: "GitHub · Código fuente abierto",
+    sub: "GitHub · Código fuente",
     url: "https://github.com/kiramman-mp3/sistema-paz-y-salvo-laboral",
   },
 ] as const;
 
 /**
- * Dashboard Bento editorial de la página principal de KhipuTech.
- * Expone desde el primer instante lo más importante de los cuatro módulos,
- * sus imágenes reales, cifras verificadas, parciales y herramientas activas.
+ * Página principal de KhipuTech: portada de presentación monumental integrada
+ * directamente con el Dashboard Bento editorial de los cuatro módulos.
  */
 export function HomeBentoDashboard() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -46,15 +45,33 @@ export function HomeBentoDashboard() {
         if (!motionAllowed) return;
 
         gsap.fromTo(
+          "[data-bento-hero]",
+          { y: 20, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.78,
+            stagger: 0.08,
+            ease: "power3.out",
+            clearProps: "transform,opacity",
+          }
+        );
+
+        gsap.fromTo(
           "[data-bento-tile]",
           { y: 18, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            duration: 0.65,
+            duration: 0.68,
             stagger: 0.06,
             ease: "power3.out",
             clearProps: "transform,opacity",
+            scrollTrigger: {
+              trigger: "[data-bento-grid]",
+              start: "top 86%",
+              once: true,
+            },
           }
         );
       }),
@@ -64,17 +81,30 @@ export function HomeBentoDashboard() {
   return (
     <section
       ref={containerRef}
-      aria-label="Panel integrador de KhipuTech"
-      className="bg-background pt-10 pb-20 md:pt-12 md:pb-28"
+      aria-label="Portada y Dashboard integrador de KhipuTech"
+      className="bg-background pt-10 pb-20 md:pt-14 md:pb-28"
     >
-      <div className="editorial-container space-y-8">
-        {/* Cabecera compacta del Dashboard (sin botón de explorar) */}
-        <header
-          data-bento-tile
-          className="flex flex-col justify-between gap-6 border-b border-border pb-7 lg:flex-row lg:items-end"
-        >
-          <div className="space-y-2">
-            <h1 className="text-[clamp(2.6rem,5.4vw,4.4rem)] leading-[0.96] tracking-[-0.035em] text-foreground">
+      <div className="editorial-container space-y-12 md:space-y-14">
+        {/* ================================================================
+         * APERTURA DE PRESENTACIÓN MONUMENTAL — KHIPUTECH PROTAGONISTA
+         * ============================================================== */}
+        <header className="grid grid-cols-1 items-center gap-8 border-b border-border pb-10 lg:grid-cols-12 lg:pb-12">
+          <div className="min-w-0 space-y-6 lg:col-span-9">
+            <div
+              data-bento-hero
+              className="flex flex-wrap items-center gap-3 font-mono text-[0.7rem] tracking-[0.2em] text-primary uppercase"
+            >
+              <span className="h-px w-8 bg-primary" aria-hidden="true" />
+              <span>
+                {INSTITUTION.shortUniversity} · {INSTITUTION.shortFaculty} ·{" "}
+                {INSTITUTION.course}
+              </span>
+            </div>
+
+            <h1
+              data-bento-hero
+              className="text-[clamp(4.1rem,10.2vw,8.8rem)] leading-[0.88] tracking-[-0.042em] text-foreground"
+            >
               <span className="font-bold">Khipu</span>
               <EditorialSerif
                 optical="display"
@@ -83,64 +113,90 @@ export function HomeBentoDashboard() {
                 Tech.
               </EditorialSerif>
             </h1>
-            <p className="max-w-xl text-sm text-muted-foreground md:text-[0.95rem]">
-              Panel integrador del semestre · {INSTITUTION.course} (
-              {INSTITUTION.shortUniversity} · {INSTITUTION.shortFaculty})
-            </p>
+
+            <div
+              data-bento-hero
+              className="flex flex-col justify-between gap-6 pt-2 md:flex-row md:items-end"
+            >
+              <p className="max-w-xl text-sm leading-relaxed text-muted-foreground">
+                {BRAND.taglineBefore}
+                <EditorialSerif
+                  optical="text"
+                  className="font-normal text-foreground"
+                >
+                  {BRAND.taglineItalic}
+                </EditorialSerif>{" "}
+                Proyecto integrador del ciclo {INSTITUTION.cycle}.
+              </p>
+
+              <dl className="flex shrink-0 flex-wrap items-center gap-x-7 gap-y-2 font-mono text-xs">
+                <div>
+                  <dt className="text-[0.62rem] tracking-wider text-muted-foreground uppercase">
+                    Módulos
+                  </dt>
+                  <dd className="text-base font-bold text-foreground">04</dd>
+                </div>
+                <div>
+                  <dt className="text-[0.62rem] tracking-wider text-muted-foreground uppercase">
+                    Parciales
+                  </dt>
+                  <dd className="text-base font-bold text-foreground">02</dd>
+                </div>
+                <div>
+                  <dt className="text-[0.62rem] tracking-wider text-muted-foreground uppercase">
+                    Guías APE
+                  </dt>
+                  <dd className="text-base font-bold text-foreground">04</dd>
+                </div>
+                <div>
+                  <dt className="text-[0.62rem] tracking-wider text-muted-foreground uppercase">
+                    Documentos
+                  </dt>
+                  <dd className="text-base font-bold text-foreground">
+                    {INSTITUTION.metrics.studentDeliverablesCount}
+                  </dd>
+                </div>
+              </dl>
+            </div>
           </div>
 
-          {/* Métricas globales del expediente */}
-          <dl className="flex flex-wrap items-center gap-x-8 gap-y-3 font-mono text-xs">
-            <div>
-              <dt className="text-[0.65rem] tracking-wider text-muted-foreground uppercase">
-                Módulos
-              </dt>
-              <dd className="text-lg font-bold text-foreground">04</dd>
-            </div>
-            <div>
-              <dt className="text-[0.65rem] tracking-wider text-muted-foreground uppercase">
-                Parciales
-              </dt>
-              <dd className="text-lg font-bold text-foreground">02</dd>
-            </div>
-            <div>
-              <dt className="text-[0.65rem] tracking-wider text-muted-foreground uppercase">
-                Guías APE
-              </dt>
-              <dd className="text-lg font-bold text-foreground">04</dd>
-            </div>
-            <div>
-              <dt className="text-[0.65rem] tracking-wider text-muted-foreground uppercase">
-                Documentos
-              </dt>
-              <dd className="text-lg font-bold text-foreground">
-                {INSTITUTION.metrics.studentDeliverablesCount}
-              </dd>
-            </div>
-          </dl>
+          {/* Escultura geométrica Khipu sin fondo acompañando el gran titular */}
+          <div
+            data-bento-hero
+            className="hidden items-center justify-end lg:col-span-3 lg:flex"
+          >
+            <img
+              src={imgM1KhipuKnot}
+              alt="Escultura geométrica del emblema KhipuTech"
+              className="h-52 w-52 object-contain mix-blend-multiply brightness-[1.1] contrast-[1.15]"
+            />
+          </div>
         </header>
 
         {/* ================================================================
-         * BENTO GRID PRINCIPAL — 4 MÓDULOS + ESTRUCTURA + HERRAMIENTAS
+         * BENTO GRID PRINCIPAL — 4 MÓDULOS + ESTRUCTURA + APLICACIONES
          * ============================================================== */}
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-12">
+        <div
+          data-bento-grid
+          className="grid grid-cols-1 gap-5 lg:grid-cols-12"
+        >
           {/* --------------------------------------------------------------
            * TILE 01 — MÓDULO 01: EMPRENDIMIENTO (7 cols)
            * ------------------------------------------------------------ */}
           <Link
             to="/emprendimiento"
             data-bento-tile
-            className="group flex flex-col justify-between gap-6 rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hairline)] transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-[var(--shadow-panel)] md:p-7 lg:col-span-7"
+            className="group flex flex-col justify-between overflow-hidden rounded-xl border border-border bg-surface transition-all duration-300 hover:border-border-strong hover:shadow-[var(--shadow-panel)] lg:col-span-7"
           >
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start justify-between gap-4 p-6 pb-4">
               <div className="space-y-1">
                 <span
-                  className="font-mono text-[0.68rem] font-semibold tracking-[0.16em] uppercase"
+                  className="font-mono text-[0.66rem] font-semibold tracking-[0.16em] uppercase"
                   style={{ color: "var(--module-01)" }}
                 >
                   01 · Unidad I · Plan de negocios
                 </span>
-                <h2 className="text-2xl leading-tight font-bold tracking-tight text-foreground sm:text-[1.85rem]">
+                <h2 className="text-2xl leading-tight font-bold tracking-tight text-foreground sm:text-[1.75rem]">
                   El{" "}
                   <EditorialSerif
                     optical="display"
@@ -156,59 +212,49 @@ export function HomeBentoDashboard() {
               </span>
             </div>
 
-            {/* Imágenes reales de Unidad I: Logo oficial + Encuesta 17 comercios */}
-            <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-12">
-              <div className="overflow-hidden rounded-xl border border-border bg-background sm:col-span-7">
-                <img
-                  src={imgKhipuBrand}
-                  alt="Marca oficial KhipuTech — APE 01"
-                  className="h-44 w-full object-cover transition-transform duration-500 group-hover:scale-[1.02] sm:h-48"
-                />
-              </div>
-              <div className="overflow-hidden rounded-xl border border-border bg-background p-1.5 sm:col-span-5">
-                <img
-                  src={imgSurveyMarket}
-                  alt="Encuesta de validación de mercado (17 respuestas)"
-                  className="h-44 w-full rounded-lg object-cover object-top transition-transform duration-500 group-hover:scale-[1.02] sm:h-48"
-                />
-              </div>
+            {/* Imagen editorial completa de control de lotes KhipuTech */}
+            <div className="overflow-hidden">
+              <img
+                src={imgM1Shelves}
+                alt="Control inteligente de inventarios y caducidad KhipuTech"
+                className="h-56 w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
+              />
             </div>
 
-            {/* Cifras clave verificadas (Guia Ape 01.pdf) */}
-            <div className="grid grid-cols-2 gap-4 border-t border-border pt-4 sm:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 border-t border-border px-6 py-4 sm:grid-cols-4">
               <div>
                 <p
-                  className="font-mono text-base font-bold tabular-nums"
+                  className="font-mono text-sm font-bold tabular-nums"
                   style={{ color: "var(--module-01)" }}
                 >
                   USD 2.900
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
+                <p className="text-[0.68rem] text-muted-foreground">
                   Inversión inicial
                 </p>
               </div>
               <div>
-                <p className="font-mono text-base font-bold text-foreground tabular-nums">
+                <p className="font-mono text-sm font-bold text-foreground tabular-nums">
                   USD 1.744
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
+                <p className="text-[0.68rem] text-muted-foreground">
                   Resultado mensual
                 </p>
               </div>
               <div>
-                <p className="font-mono text-base font-bold text-foreground tabular-nums">
+                <p className="font-mono text-sm font-bold text-foreground tabular-nums">
                   1,7 meses
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
+                <p className="text-[0.68rem] text-muted-foreground">
                   Recuperación est.
                 </p>
               </div>
               <div>
-                <p className="font-mono text-base font-bold text-foreground tabular-nums">
+                <p className="font-mono text-sm font-bold text-foreground tabular-nums">
                   6 PDFs
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
-                  APE 01 + Tareas 01–05
+                <p className="text-[0.68rem] text-muted-foreground">
+                  APE 01 + T01–T05
                 </p>
               </div>
             </div>
@@ -220,17 +266,17 @@ export function HomeBentoDashboard() {
           <Link
             to="/tributacion"
             data-bento-tile
-            className="group flex flex-col justify-between gap-5 rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hairline)] transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-[var(--shadow-panel)] md:p-7 lg:col-span-5"
+            className="group flex flex-col justify-between overflow-hidden rounded-xl border border-border bg-surface transition-all duration-300 hover:border-border-strong hover:shadow-[var(--shadow-panel)] lg:col-span-5"
           >
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start justify-between gap-4 p-6 pb-4">
               <div className="space-y-1">
                 <span
-                  className="font-mono text-[0.68rem] font-semibold tracking-[0.16em] uppercase"
+                  className="font-mono text-[0.66rem] font-semibold tracking-[0.16em] uppercase"
                   style={{ color: "var(--module-02)" }}
                 >
                   02 · Unidad II · SRI, IVA y SENADI
                 </span>
-                <h2 className="text-2xl leading-tight font-bold tracking-tight text-foreground sm:text-[1.85rem]">
+                <h2 className="text-2xl leading-tight font-bold tracking-tight text-foreground sm:text-[1.75rem]">
                   Obligaciones{" "}
                   <EditorialSerif
                     optical="display"
@@ -246,41 +292,39 @@ export function HomeBentoDashboard() {
               </span>
             </div>
 
-            {/* Visual real: Infografía Top 5 Importaciones Ecuador 2024 */}
-            <div className="overflow-hidden rounded-xl border border-border bg-background p-1.5">
+            <div className="overflow-hidden">
               <img
                 src={imgImportaciones}
-                alt="Top 5 productos tecnológicos que más importa Ecuador 2024 — TAREA 11"
-                className="h-44 w-full rounded-lg object-cover object-top transition-transform duration-500 group-hover:scale-[1.02] sm:h-48"
+                alt="Top 5 productos tecnológicos que más importa Ecuador 2024"
+                className="h-56 w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
               />
             </div>
 
-            {/* Cifras clave verificadas (Guia Ape 02.pdf) */}
-            <div className="grid grid-cols-3 gap-3 border-t border-border pt-4">
+            <div className="grid grid-cols-3 gap-3 border-t border-border px-6 py-4">
               <div>
                 <p
-                  className="font-mono text-base font-bold tabular-nums"
+                  className="font-mono text-sm font-bold tabular-nums"
                   style={{ color: "var(--module-02)" }}
                 >
                   $229,50
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
+                <p className="text-[0.68rem] text-muted-foreground">
                   Crédito IVA
                 </p>
               </div>
               <div>
-                <p className="font-mono text-base font-bold text-foreground">
+                <p className="font-mono text-sm font-bold text-foreground">
                   Clase 42
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
+                <p className="text-[0.68rem] text-muted-foreground">
                   Marca SENADI
                 </p>
               </div>
               <div>
-                <p className="font-mono text-base font-bold text-foreground tabular-nums">
+                <p className="font-mono text-sm font-bold text-foreground tabular-nums">
                   8 PDFs
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
+                <p className="text-[0.68rem] text-muted-foreground">
                   APE 02 + T06–T12
                 </p>
               </div>
@@ -293,17 +337,17 @@ export function HomeBentoDashboard() {
           <Link
             to="/nomina"
             data-bento-tile
-            className="group flex flex-col justify-between gap-5 rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hairline)] transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-[var(--shadow-panel)] md:p-7 lg:col-span-5"
+            className="group flex flex-col justify-between overflow-hidden rounded-xl border border-border bg-surface transition-all duration-300 hover:border-border-strong hover:shadow-[var(--shadow-panel)] lg:col-span-5"
           >
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start justify-between gap-4 p-6 pb-4">
               <div className="space-y-1">
                 <span
-                  className="font-mono text-[0.68rem] font-semibold tracking-[0.16em] uppercase"
+                  className="font-mono text-[0.66rem] font-semibold tracking-[0.16em] uppercase"
                   style={{ color: "var(--module-03)" }}
                 >
                   03 · Unidad III · TechInstall Solutions
                 </span>
-                <h2 className="text-2xl leading-tight font-bold tracking-tight text-foreground sm:text-[1.85rem]">
+                <h2 className="text-2xl leading-tight font-bold tracking-tight text-foreground sm:text-[1.75rem]">
                   Remuneraciones{" "}
                   <EditorialSerif
                     optical="display"
@@ -319,50 +363,48 @@ export function HomeBentoDashboard() {
               </span>
             </div>
 
-            {/* Imágenes reales: App Web + Móvil de Roles de Pago (APE 03) */}
-            <div className="grid grid-cols-12 gap-3">
-              <div className="col-span-8 overflow-hidden rounded-xl border border-border bg-background">
+            <div className="grid grid-cols-12 overflow-hidden">
+              <div className="col-span-6 overflow-hidden">
+                <img
+                  src={imgM3Workspace}
+                  alt="Estructura y organización del talento humano"
+                  className="h-52 w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+              </div>
+              <div className="col-span-6 overflow-hidden border-l border-border">
                 <img
                   src={imgNominaWeb}
                   alt="Aplicación web de roles de pago — APE 03"
-                  className="h-44 w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02] sm:h-48"
-                />
-              </div>
-              <div className="col-span-4 overflow-hidden rounded-xl border border-border bg-background p-1">
-                <img
-                  src={imgNominaMovil}
-                  alt="Versión móvil de roles de pago — APE 03"
-                  className="h-44 w-full rounded-lg object-cover object-top transition-transform duration-500 group-hover:scale-[1.02] sm:h-48"
+                  className="h-52 w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>
             </div>
 
-            {/* Cifras clave verificadas (APE 03.pdf) */}
-            <div className="grid grid-cols-3 gap-3 border-t border-border pt-4">
+            <div className="grid grid-cols-3 gap-3 border-t border-border px-6 py-4">
               <div>
                 <p
-                  className="font-mono text-base font-bold tabular-nums"
+                  className="font-mono text-sm font-bold tabular-nums"
                   style={{ color: "var(--module-03)" }}
                 >
                   $13.083
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
+                <p className="text-[0.68rem] text-muted-foreground">
                   Líquido neto
                 </p>
               </div>
               <div>
-                <p className="font-mono text-base font-bold text-foreground tabular-nums">
+                <p className="font-mono text-sm font-bold text-foreground tabular-nums">
                   $3.588,64
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
+                <p className="text-[0.68rem] text-muted-foreground">
                   Planilla IESS
                 </p>
               </div>
               <div>
-                <p className="font-mono text-base font-bold text-foreground tabular-nums">
+                <p className="font-mono text-sm font-bold text-foreground tabular-nums">
                   4 PDFs
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
+                <p className="text-[0.68rem] text-muted-foreground">
                   APE 03 + 3 evid.
                 </p>
               </div>
@@ -375,17 +417,17 @@ export function HomeBentoDashboard() {
           <Link
             to="/liquidacion"
             data-bento-tile
-            className="group flex flex-col justify-between gap-6 rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hairline)] transition-all duration-300 hover:-translate-y-0.5 hover:border-border-strong hover:shadow-[var(--shadow-panel)] md:p-7 lg:col-span-7"
+            className="group flex flex-col justify-between overflow-hidden rounded-xl border border-border bg-surface transition-all duration-300 hover:border-border-strong hover:shadow-[var(--shadow-panel)] lg:col-span-7"
           >
-            <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start justify-between gap-4 p-6 pb-4">
               <div className="space-y-1">
                 <span
-                  className="font-mono text-[0.68rem] font-semibold tracking-[0.16em] uppercase"
+                  className="font-mono text-[0.66rem] font-semibold tracking-[0.16em] uppercase"
                   style={{ color: "var(--module-04)" }}
                 >
                   04 · Unidad IV · PazySalvo y 12 casos
                 </span>
-                <h2 className="text-2xl leading-tight font-bold tracking-tight text-foreground sm:text-[1.85rem]">
+                <h2 className="text-2xl leading-tight font-bold tracking-tight text-foreground sm:text-[1.75rem]">
                   Liquidación{" "}
                   <EditorialSerif
                     optical="display"
@@ -401,58 +443,56 @@ export function HomeBentoDashboard() {
               </span>
             </div>
 
-            {/* Imágenes reales: Dashboard PazySalvo + Certificado Paz y Salvo PDF */}
-            <div className="grid grid-cols-12 gap-3.5">
-              <div className="col-span-8 overflow-hidden rounded-xl border border-border bg-background">
+            <div className="grid grid-cols-12 items-center bg-background">
+              <div className="col-span-8 overflow-hidden">
                 <img
                   src={imgPazySalvo}
                   alt="Herramienta web PazySalvo — APE 04"
-                  className="h-44 w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02] sm:h-48"
+                  className="h-52 w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
                 />
               </div>
-              <div className="col-span-4 overflow-hidden rounded-xl border border-border bg-background p-1.5">
+              <div className="col-span-4 flex h-52 items-center justify-center p-3">
                 <img
                   src={imgCertificadoPys}
-                  alt="Certificado de Paz y Salvo PDF generado por PazySalvo"
-                  className="h-44 w-full rounded-lg object-cover object-top transition-transform duration-500 group-hover:scale-[1.02] sm:h-48"
+                  alt="Certificado de Paz y Salvo generado en PDF"
+                  className="max-h-48 w-full object-contain mix-blend-multiply contrast-[1.05] transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </div>
             </div>
 
-            {/* Cifras clave verificadas (APE 04 + 12 casos + Laboral Hack) */}
-            <div className="grid grid-cols-2 gap-4 border-t border-border pt-4 sm:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 border-t border-border px-6 py-4 sm:grid-cols-4">
               <div>
                 <p
-                  className="font-mono text-base font-bold tabular-nums"
+                  className="font-mono text-sm font-bold tabular-nums"
                   style={{ color: "var(--module-04)" }}
                 >
                   USD 3.999
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
+                <p className="text-[0.68rem] text-muted-foreground">
                   Desahucio APE 04
                 </p>
               </div>
               <div>
-                <p className="font-mono text-base font-bold text-foreground tabular-nums">
+                <p className="font-mono text-sm font-bold text-foreground tabular-nums">
                   12 casos
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
+                <p className="text-[0.68rem] text-muted-foreground">
                   $232 a $42.439
                 </p>
               </div>
               <div>
-                <p className="font-mono text-base font-bold text-foreground tabular-nums">
+                <p className="font-mono text-sm font-bold text-foreground tabular-nums">
                   95 / 100
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
+                <p className="text-[0.68rem] text-muted-foreground">
                   Laboral Hack UTA
                 </p>
               </div>
               <div>
-                <p className="font-mono text-base font-bold text-foreground tabular-nums">
+                <p className="font-mono text-sm font-bold text-foreground tabular-nums">
                   4 PDFs
                 </p>
-                <p className="text-[0.7rem] text-muted-foreground">
+                <p className="text-[0.68rem] text-muted-foreground">
                   APE 04 + evidencias
                 </p>
               </div>
@@ -464,45 +504,50 @@ export function HomeBentoDashboard() {
            * ------------------------------------------------------------ */}
           <div
             data-bento-tile
-            className="flex flex-col justify-between gap-5 rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hairline)] md:p-7 lg:col-span-7"
+            className="flex flex-col gap-6 rounded-xl border border-border bg-surface p-6 lg:col-span-7"
           >
             <div className="flex items-baseline justify-between gap-2">
-              <h2 className="text-base font-bold text-foreground">
+              <h2 className="text-sm font-bold tracking-wide text-foreground uppercase">
                 Recorrido del semestre · {INSTITUTION.cycle}
               </h2>
-              <span className="font-mono text-[0.68rem] tracking-wider text-muted-foreground uppercase">
+              <span className="font-mono text-[0.66rem] tracking-wider text-muted-foreground uppercase">
                 2 parciales · 4 unidades
               </span>
             </div>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               {SEMESTER_PARTIALS.map((partial) => (
-                <div key={partial.id} className="space-y-3">
+                <div key={partial.id} className="space-y-3.5">
                   <div className="flex items-baseline justify-between border-b border-border pb-2">
                     <span className="text-xs font-bold tracking-wider text-foreground uppercase">
                       {partial.name}
                     </span>
                     <span className="font-mono text-[0.68rem] text-muted-foreground">
-                      {partial.deliverablesTotal} docs
+                      {partial.timeframe} · {partial.deliverablesTotal} docs
                     </span>
                   </div>
 
-                  <ul className="space-y-2.5">
+                  <ul className="space-y-3">
                     {partial.units.map((unit) => (
                       <li key={unit.unitNumber}>
                         <Link
                           to={unit.modulePath}
-                          className="group/unit flex items-baseline justify-between gap-3 text-xs transition-colors hover:text-primary"
+                          className="group/unit block space-y-0.5 text-xs transition-colors"
                         >
-                          <span className="font-medium text-foreground group-hover/unit:text-primary">
-                            <span className="mr-2 font-mono text-muted-foreground">
-                              {unit.moduleId}
+                          <div className="flex items-baseline justify-between gap-3">
+                            <span className="font-semibold text-foreground group-hover/unit:text-primary">
+                              <span className="mr-2 font-mono text-muted-foreground">
+                                {unit.moduleId}
+                              </span>
+                              {unit.moduleName}
                             </span>
-                            {unit.moduleName}
-                          </span>
-                          <span className="shrink-0 font-mono text-[0.68rem] text-muted-foreground">
-                            {unit.apeFile.replace(".pdf", "")}
-                          </span>
+                            <span className="shrink-0 font-mono text-[0.66rem] text-muted-foreground">
+                              {unit.apeFile.replace(".pdf", "")}
+                            </span>
+                          </div>
+                          <p className="pl-6 text-[0.7rem] leading-snug text-muted-foreground">
+                            {unit.title}
+                          </p>
                         </Link>
                       </li>
                     ))}
@@ -517,10 +562,10 @@ export function HomeBentoDashboard() {
            * ------------------------------------------------------------ */}
           <div
             data-bento-tile
-            className="flex flex-col justify-between gap-5 rounded-2xl border border-border bg-surface p-6 shadow-[var(--shadow-hairline)] md:p-7 lg:col-span-5"
+            className="flex flex-col justify-between gap-5 rounded-xl border border-border bg-surface p-6 lg:col-span-5"
           >
-            <div className="space-y-3">
-              <h2 className="text-base font-bold text-foreground">
+            <div className="space-y-2.5">
+              <h2 className="text-sm font-bold tracking-wide text-foreground uppercase">
                 Aplicaciones en producción
               </h2>
 
@@ -548,7 +593,7 @@ export function HomeBentoDashboard() {
               </ul>
             </div>
 
-            <div className="border-t border-border pt-3.5 text-[0.72rem] text-muted-foreground">
+            <div className="border-t border-border pt-3 text-[0.7rem] text-muted-foreground">
               <span className="font-semibold text-foreground">
                 Equipo {INSTITUTION.level}:
               </span>{" "}

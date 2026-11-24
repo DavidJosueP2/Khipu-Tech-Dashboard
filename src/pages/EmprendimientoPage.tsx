@@ -15,13 +15,14 @@ import { DocumentsGallerySection } from "@/components/emprendimiento/DocumentsGa
 import { PdfViewerSheet } from "@/components/documents/PdfViewerSheet";
 import { gsap, useGSAP, withResponsiveMotion } from "@/lib/motion";
 
-import imgKhipuBrand from "@/assets/heroes/m1-khiputech-logo.png";
-import imgSurveyMarket from "@/assets/heroes/m1-encuesta-mercado.png";
+import imgM1Shelves from "@/assets/heroes/editorial-m1-main.jpg";
+import imgM1KhipuKnot from "@/assets/heroes/editorial-m1-detail.jpg";
 
 /**
  * Módulo 01 — Emprendimiento (KhipuTech · Unidad I).
- * Portada editorial con composición propia: tipografía + marca oficial a la
- * izquierda y galería vertical del estudio de mercado a la derecha.
+ * Portada editorial estilo galería (Aureli): tipografía monumental sin desbordes,
+ * escultura Khipu integrada sin fondo (mix-blend-multiply) y fotografía editorial
+ * a sangre completa sin marcos ni tarjetas blancas.
  */
 export function EmprendimientoPage() {
   const heroRef = useRef<HTMLElement>(null);
@@ -39,7 +40,7 @@ export function EmprendimientoPage() {
             y: 0,
             opacity: 1,
             duration: 0.76,
-            stagger: 0.09,
+            stagger: 0.08,
             ease: "power3.out",
             clearProps: "transform,opacity",
           }
@@ -55,19 +56,19 @@ export function EmprendimientoPage() {
 
   return (
     <div className="editorial-container flex flex-1 flex-col">
-      {/* PORTADA EDITORIAL DEL MÓDULO 01 — MARCA + ESTUDIO DE MERCADO */}
+      {/* PORTADA EDITORIAL DEL MÓDULO 01 — ESTILO AURELI SIN MARCOS */}
       <section
         ref={heroRef}
         aria-label="Portada del Módulo 01 Emprendimiento"
-        className="py-14 md:py-22"
+        className="flex min-h-[calc(100svh-4rem)] items-center py-10 md:py-14"
       >
-        <div className="grid grid-cols-1 items-stretch gap-12 lg:grid-cols-12 lg:gap-10">
-          {/* Izquierda: título monumental + bajada + logotipo real de KhipuTech */}
-          <div className="flex flex-col justify-between gap-10 lg:col-span-6">
-            <div className="space-y-6">
+        <div className="grid w-full grid-cols-1 items-stretch gap-10 lg:grid-cols-12 lg:gap-12">
+          {/* Izquierda: título sin desbordes + sub-fila editorial con escultura sin fondo */}
+          <div className="flex min-w-0 flex-col justify-between gap-10 lg:col-span-6">
+            <div className="space-y-4 pt-2">
               <div
                 data-m1-intro
-                className="flex items-center gap-3 font-mono text-[0.72rem] tracking-[0.18em] uppercase"
+                className="flex items-center gap-3 font-mono text-[0.7rem] tracking-[0.2em] uppercase"
                 style={{ color: "var(--module-01)" }}
               >
                 <span
@@ -75,12 +76,12 @@ export function EmprendimientoPage() {
                   style={{ backgroundColor: "var(--module-01)" }}
                   aria-hidden="true"
                 />
-                <span>01 · Unidad I</span>
+                <span>01 · Unidad I · KhipuTech</span>
               </div>
 
               <h1
                 data-m1-intro
-                className="text-[clamp(3.1rem,6.8vw,5.8rem)] leading-[0.95] tracking-[-0.035em] text-foreground"
+                className="text-[clamp(2.45rem,4.35vw,4.15rem)] leading-[0.98] tracking-[-0.032em] text-foreground"
               >
                 <span className="block font-bold">El</span>
                 <span className="block">
@@ -93,61 +94,68 @@ export function EmprendimientoPage() {
                   </EditorialSerif>
                 </span>
               </h1>
+            </div>
 
-              <p
-                data-m1-intro
-                className="max-w-md text-sm leading-relaxed text-muted-foreground md:text-base"
-              >
-                Idea de negocio, Business Model Canvas, perfil estratégico y
-                viabilidad financiera de KhipuTech.
-              </p>
+            {/* Sub-fila inferior: descripción + acceso a la izquierda, escultura Khipu sin fondo al centro */}
+            <div className="grid grid-cols-1 items-end gap-8 sm:grid-cols-12">
+              <div data-m1-intro className="space-y-6 sm:col-span-6">
+                <p className="text-sm leading-relaxed text-muted-foreground">
+                  Control inteligente de lotes y caducidad para comercios: idea
+                  de negocio, Canvas, plan estratégico y viabilidad financiera.
+                </p>
 
-              <div data-m1-intro className="pt-1">
+                <div>
+                  <button
+                    type="button"
+                    onClick={scrollToContent}
+                    className="group inline-flex cursor-pointer items-center gap-2.5 border-b border-foreground pb-1.5 text-xs font-semibold tracking-[0.14em] text-foreground uppercase transition-opacity hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                  >
+                    <span>Explorar módulo</span>
+                    <ArrowDown className="size-3.5 transition-transform group-hover:translate-y-0.5" />
+                  </button>
+                </div>
+
+                <p className="pt-2 font-mono text-[0.68rem] tracking-[0.14em] text-muted-foreground uppercase">
+                  APE 01 · 6 documentos · 17 encuestas
+                </p>
+              </div>
+
+              {/* Escultura Khipu sin fondo (se funde directo en el lienzo blanco cálido) */}
+              <div data-m1-intro className="sm:col-span-6">
                 <button
                   type="button"
-                  onClick={scrollToContent}
-                  className="group inline-flex cursor-pointer items-center gap-2.5 border-b border-foreground pb-1.5 text-xs font-semibold tracking-[0.14em] text-foreground uppercase transition-opacity hover:opacity-70 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                  onClick={() => setSelectedDoc(ape01)}
+                  aria-label="Abrir Plan de Negocios APE 01"
+                  className="group block w-full cursor-pointer text-left outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
-                  <span>Explorar módulo</span>
-                  <ArrowDown className="size-3.5 transition-transform group-hover:translate-y-0.5" />
+                  <img
+                    src={imgM1KhipuKnot}
+                    alt="Escultura geométrica inspirada en el nudo Khipu de KhipuTech"
+                    className="mx-auto max-h-60 w-full object-contain mix-blend-multiply brightness-[1.1] contrast-[1.15] transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  />
                 </button>
               </div>
             </div>
-
-            {/* Visual secundario: identidad oficial extraída de Guia Ape 01.pdf */}
-            <button
-              type="button"
-              data-m1-intro
-              onClick={() => setSelectedDoc(ape01)}
-              aria-label="Abrir Plan de Negocios APE 01"
-              className="group block w-full max-w-md cursor-pointer overflow-hidden rounded-lg border border-border bg-surface shadow-[var(--shadow-hairline)] transition-colors hover:border-border-strong"
-            >
-              <img
-                src={imgKhipuBrand}
-                alt="Logotipo oficial KhipuTech — Figura 1 de Guia Ape 01.pdf"
-                className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-            </button>
           </div>
 
-          {/* Derecha: visual vertical protagonista (encuesta real de 17 comercios) */}
-          <div data-m1-intro className="flex flex-col justify-between gap-4 lg:col-span-6">
+          {/* Derecha: imagen editorial limpia a sangre completa (CERO borde, CERO marco blanco) */}
+          <div data-m1-intro className="flex flex-col justify-between gap-3 lg:col-span-6">
             <button
               type="button"
               onClick={() => setSelectedDoc(ape01)}
-              aria-label="Consultar encuesta de mercado en Guia Ape 01.pdf"
-              className="group block w-full cursor-pointer overflow-hidden rounded-xl border border-border bg-surface p-3 shadow-[var(--shadow-panel)] transition-colors hover:border-border-strong"
+              aria-label="Consultar Plan de Negocios en Guia Ape 01.pdf"
+              className="group block w-full cursor-pointer overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <img
-                src={imgSurveyMarket}
-                alt="Resultados reales de la encuesta de mercado de KhipuTech (17 respuestas)"
-                className="max-h-[34rem] w-full rounded-md object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+                src={imgM1Shelves}
+                alt="Orden y trazabilidad de lotes en anaquel — concepto KhipuTech"
+                className="aspect-[4/4.6] max-h-[calc(100svh-10.5rem)] w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
               />
             </button>
 
-            <div className="flex items-center justify-between font-mono text-[0.68rem] tracking-[0.14em] text-muted-foreground uppercase">
-              <span>Plan de negocios · 17 encuestas</span>
-              <span>APE 01 · 6 documentos</span>
+            <div className="flex items-center justify-between font-mono text-[0.66rem] tracking-[0.16em] text-muted-foreground uppercase">
+              <span>Trazabilidad de lotes · SaaS</span>
+              <span>Plan integral · APE 01</span>
             </div>
           </div>
         </div>
@@ -156,10 +164,10 @@ export function EmprendimientoPage() {
       {/* CAPÍTULOS 01 y 02 — IDEA DE NEGOCIO + MODELO CANVAS */}
       <ChapterIdeaCanvas />
 
-      {/* CAPÍTULO 03 — PLAN EMPRESARIAL (4 ESCENAS: IDENTIDAD, FODA, MERCADO, OPERACIÓN) */}
+      {/* CAPÍTULO 03 — PLAN EMPRESARIAL */}
       <ChapterPlanEmpresarial />
 
-      {/* CAPÍTULO 04 — RESULTADOS ECONÓMICOS (2 ESCENAS: INVERSIÓN/COSTOS + INGRESOS/RECUPERACIÓN) */}
+      {/* CAPÍTULO 04 — RESULTADOS ECONÓMICOS */}
       <ChapterResultadosEconomicos />
 
       {/* CIERRE — GALERÍA VISUAL DE LOS 6 PDF ORIGINALES */}
@@ -176,7 +184,7 @@ export function EmprendimientoPage() {
         >
           <span className="inline-flex items-center gap-1.5 text-xs tracking-widest text-muted-foreground uppercase">
             <ArrowLeft className="size-3.5 transition-transform group-hover:-translate-x-1" />
-            Portada principal
+            Dashboard principal
           </span>
           <span className="text-lg font-semibold text-foreground transition-colors group-hover:text-primary">
             {BRAND.product}
